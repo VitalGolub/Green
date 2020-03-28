@@ -1,0 +1,112 @@
+body {
+	background-color: #76b852;;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.step1{
+	text-align:center;
+	background-color: #FFFFFF;
+    width: 400px;
+    height: 500px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+	outline: none;
+
+	
+}
+.step2{
+	text-align:center;
+	background-color: #FFFFFF;
+    width: 400px;
+    height: 500px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+	outline: none;
+	
+}
+.step3{
+	text-align:center;
+	background-color: #FFFFFF;
+    width: 400px;
+    height: 500px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+	outline: none;
+	
+}
+
+/*inputs*/
+ input  {
+	width: 76%;
+	color: rgb(47, 121, 69);
+	font-weight: 700;
+	font-size: 14px;
+	letter-spacing: 1px;
+	background: rgba(21, 139, 40, 0.04);
+	padding: 10px 20px;
+	border: none;
+	border-radius: 20px;
+	outline: none;
+	box-sizing: border-box;
+	border: 2px solid rgba(0, 100, 0,1);
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	margin-bottom: 27px;
+	font-family: 'Ubuntu', sans-serif;
+}
+/*buttons*/
+ .next{
+
+    border-radius: 5em;
+    color: #fff;
+    background:  #4CAF50;;
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+ 
+    font-family: 'Ubuntu', sans-serif;
+   
+    font-size: 13px;
+	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+	text-align: center;
+}
+.previous{
+	
+    border-radius: 5em;
+    color: #fff;
+    background:  #4CAF50;;
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    font-family: 'Ubuntu', sans-serif;
+   
+    font-size: 13px;
+	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+	text-align: center;
+}
+.submit{
+	border-radius: 5em;
+    color: #fff;
+    background:  #4CAF50;;
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+ 
+    font-family: 'Ubuntu', sans-serif;
+   
+    font-size: 13px;
+	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+	text-align: center;
+}
+
+
+
