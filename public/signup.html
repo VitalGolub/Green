@@ -8,15 +8,22 @@
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <title>Sign Up</title>
       </head>
 
 <body>
-
+  <div id="nav-placeholder"></div>
+  <script>
+    $(function(){
+      $("#nav-placeholder").load("navBar.html");
+    });
+  </script>
+  
 <form >
-   
-    
+
+
     <fieldset class="step1">
       <h2 class="fs-title">Create your account</h2>
       <h3 class="fs-subtitle">Step 1</h3>
@@ -34,11 +41,11 @@
       <input type="text" name="lastName" placeholder="LastName" />
       <input type="text" name="dateOfBirth" placeholder="MM/DD/YYYY" />
       <input type="text" name="phoneNumber" placeholder="() - -" />
-      
+
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
-    
+
     <fieldset class="step3">
       <h2 class="fieldSet_title">Personal Details</h2>
       <h3 class="fieldSet_subtitle">Step 3</h3>

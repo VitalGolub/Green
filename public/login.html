@@ -7,12 +7,21 @@
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-        
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="JavaScript/login.js"></script>
+
         <title>Sign in</title>
       </head>
 
 
       <body>
+        <div id="nav-placeholder"></div>
+        <script>
+          $(function(){
+            $("#nav-placeholder").load("navBar.html");
+          });
+        </script>
+
         <hgroup>
             <h1>Welcome to Green</h1>
             <h4>Keep Track Of Your Money. Stay On Track Of Your Life.</h4>
@@ -25,9 +34,9 @@
             <a class="submit" align="center">Sign in</a>
             <p class="create" align="center"><a href="signup.html">Create Account</p>
             <p class="forgot" align="center"><a href="">Forgot Password?</p>
-            
-                      
+
+
           </div>
-           
+
       </body>
 </html>

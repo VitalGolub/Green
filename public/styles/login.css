@@ -1,5 +1,5 @@
 body {
-    background-color: #76b852;;
+    background-color: #76b852;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -12,7 +12,7 @@ body {
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 
-hgroup { 
+hgroup {
 	text-align:center;
 	margin-top: 4em;
 }
@@ -72,11 +72,11 @@ font-family: 'Ubuntu', sans-serif;
 
 .username:focus, .pass:focus {
     border: 2px solid rgba(0, 0, 0, 0.18) !important;
-    
+
 }
 
 .submit {
-  
+
     border-radius: 5em;
     color: #fff;
     background:  #4CAF50;;
@@ -94,7 +94,7 @@ font-family: 'Ubuntu', sans-serif;
 .forgot a {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #4CAF50;
-  
+
 }
 
 .create {
@@ -104,15 +104,10 @@ font-family: 'Ubuntu', sans-serif;
 .create a{
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color:  #4CAF50;
-   
+
 }
 
 a {
-  
+
     text-decoration: none
 }
-
-
-
-
- 
