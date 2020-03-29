@@ -1,0 +1,133 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+.navbar .nav {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+}
+
+/* background colour */
+.navbar-inverse{
+  background-color: #00CC00;
+  background-image: none;
+  background-repeat: no-repeat;
+}
+
+/* right nav*/
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>li>a{
+  background-color: #00CC00;
+}
+
+/* right nav hover */
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-nav>li>a:focus {
+  background-color: black;
+}
+
+/*  */
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a:focus {
+  background-color: pink;
+}
+
+/* Dropdown background */
+.dropdown-menu {
+  background-color: white;
+}
+
+/* Dropdown hover */
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+  background-color: #00CC00;
+}
+
+.navbar-inverse {
+  background-image: none;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+  background-image: none;
+}
+
+/* border of bar */
+.navbar-inverse {
+  border-color: green;
+}
+
+/* Company name color */
+.navbar-inverse .navbar-brand {
+  color: white;
+}
+
+/* Company name hover color */
+.navbar-inverse .navbar-brand:hover {
+  color: purple;
+}
+
+/* Right navbar word colour */
+.navbar-inverse .navbar-nav>li>a {
+  color: black;
+}
+
+/* Right nav word Hover colour */
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-nav>li>a:focus {
+  color: white;
+}
+
+/* Contact colour */
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a:focus {
+  color: #white;
+}
+
+/* Contact hover  */
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.active>a:focus {
+  color: white;
+}
+
+/* Dropdown colour */
+.dropdown-menu>li>a {
+  color: black;
+}
+
+/* Dropdown words hover */
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+  color: white;
+}
+
+/* Arrow */
+.navbar-inverse .navbar-nav>.dropdown>a .caret {
+  border-top-color: black;
+}
+
+/* Arrow hover */
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+  border-top-color: white;
+}
+
+/* Arrow hover */
+.navbar-inverse .navbar-nav>.dropdown>a .caret {
+  border-bottom-color: yellow;
+}
+
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+  border-bottom-color: yellow;
+}
