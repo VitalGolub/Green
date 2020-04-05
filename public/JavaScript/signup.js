@@ -32,7 +32,7 @@ $(".next").click(function(){
 		complete: function(){
 			current_fs.hide();
 			animating = false;
-		}, 
+		},
 		//using the easing plugin for jquery UI
 		//There are differnt types of easing 
 		//I use easeInOutElastic as a place holder
@@ -46,7 +46,6 @@ $(".previous").click(function(){
 	
 	current_fs = $(this).parent();
 	previous_fs = $(this).parent().prev();
-	
 	
 	//show the previous fieldset
 	previous_fs.show(); 
