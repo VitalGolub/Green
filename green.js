@@ -10,6 +10,11 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'pug');
+
+
 //sets up database for green
 let db = new sqlite3.Database('./data/green.db', (error) => {
     if (error) {
@@ -21,7 +26,7 @@ let db = new sqlite3.Database('./data/green.db', (error) => {
 });
 
 //create user table inside green.db
-db.serialize(() => {
+/*db.serialize(() => {
 
     db.run(`CREATE TABLE userPersonalInformation(
         userName TEXT PRIMARY KEY, 
@@ -32,17 +37,26 @@ db.serialize(() => {
         password VARCHAR(255)
     )`);
 
-});
+});*/
 
-//when no endpoint is entered the screen will defualt to the login page
+//when no endpoint is entered the screen will default to the login page
 app.get('/' , (request,response) => {
-    response.sendFile(__dirname + '/public/login.html')
+    //response.sendFile(__dirname + '/public/login.html')
+	response.render('login');
 });
 
 //when login is endpoint 
 app.get('/login' , (request,response) => {
-    response.sendFile(__dirname + '/public/login.html')
+    //response.sendFile(__dirname + '/public/login.html')
+	
 });
+
+app.get('/signup' , (request,response) => {
+    //response.sendFile(__dirname + '/public/login.html')
+	response.render('signup');
+	
+});
+
 
 
 
@@ -51,5 +65,5 @@ app.get('/login' , (request,response) => {
 app.set('port', 3000); 
 
 app.listen(app.get('port'), () => {
-    console.log('Node.js/Express is listening on port' + app.get('port'));
+    console.log('Node.js/Express is listening on port ' + app.get('port'));
 })
