@@ -26,18 +26,28 @@ let db = new sqlite3.Database('./data/green.db', (error) => {
 });
 
 //create user table inside green.db
-/*db.serialize(() => {
+db.serialize(() => {
 
-    db.run(`CREATE TABLE userPersonalInformation(
+    db.run(`CREATE TABLE IF NOT EXISTS users(
         userName TEXT PRIMARY KEY, 
         firstName TEXT, 
         lastName TEXT, 
-        email TEXT
-        birthDay DATE 
+        email TEXT,
+        birthDay DATE, 
         password VARCHAR(255)
     )`);
 
-});*/
+
+    db.run(`CREATE TABLE IF NOT EXISTS expenses(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        date DATE,
+        amount REAL,
+        category TEXT,
+        description TEXT
+    )`);
+
+});
 
 //when no endpoint is entered the screen will default to the login page
 app.get('/' , (request,response) => {
@@ -57,9 +67,67 @@ app.get('/signup' , (request,response) => {
 	
 });
 
+app.post('/api/getUserExpenses', (req,res) => {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    db.all(`SELECT username, date, amount, category, description FROM expenses WHERE username = "${data.username}" AND date >= "${data.from}" AND date <= "${data.to}"`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
 
 
+app.get('/api/getExpenses', (req,res) => {
 
+    db.all(`SELECT username, date, amount, category, description FROM expenses`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
+
+app.get('/api/getUsers', (req,res) => {
+
+    db.all(`SELECT * FROM users`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
+
+
+app.post('/api/addExpense', (req,res) => {
+    let data = JSON.parse(JSON.stringify(req.body));
+    console.log(data);
+
+    let user = data.username;
+    let category = data.category;
+    let amount = data.amount;
+    let description = data.description;
+    let date = data.date;
+
+    // Do something, like query a database or save data
+
+    db.run('INSERT INTO expenses (username, date, amount, category, description) VALUES (?, ?, ?, ?, ?)', 
+                    [user, date, amount, category, description], function(error) {
+        if (error) {
+            console.error(error.message);
+            return;
+        }
+    });
+});
+
+
+app.get('/test', (request,response) => {
+    response.sendFile(__dirname + '/public/test.html');
+});
 
 
 app.set('port', 3000); 
