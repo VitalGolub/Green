@@ -29,9 +29,9 @@ let db = new sqlite3.Database('./data/green.db', (error) => {
 db.serialize(() => {
 
     db.run(`CREATE TABLE IF NOT EXISTS users(
-        userName TEXT PRIMARY KEY, 
-        firstName TEXT, 
-        lastName TEXT, 
+        username TEXT PRIMARY KEY, 
+        firstname TEXT, 
+        lastname TEXT, 
         email TEXT,
         birthDay DATE, 
         password VARCHAR(255)
