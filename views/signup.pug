@@ -1,0 +1,37 @@
+doctype html
+head
+  link(rel='stylesheet' href='styles/signup.css')
+  script(type='text/javascript' src='https://code.jquery.com/jquery-3.0.0.min.js')
+  script(type='text/javascript' src='JavaScript/signup.js')
+  link(href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='path/to/font-awesome/css/font-awesome.min.css')
+  script(type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+  title Sign Up
+form
+  fieldset.step1
+    h2.fs-title Create your account
+    h3.fs-subtitle Step 1
+    input(type='text' name='email' placeholder='Email')
+    input(type='password' name='pass' placeholder='Password')
+    input(type='password' name='cpass' placeholder='Confirm Password')
+    input(type='text' name='random' placeholder='Something')
+    input.next.action-button(type='button' name='next' value='Next')
+  fieldset.step2
+    h2.fs-title Account Details
+    h3.fs-subtitle Step 2
+    input(type='text' name='firstName' placeholder='FirstName')
+    input(type='text' name='lastName' placeholder='LastName')
+    input(type='text' name='dateOfBirth' placeholder='MM/DD/YYYY')
+    input(type='text' name='phoneNumber' placeholder='() - -')
+    input.previous.action-button(type='button' name='previous' value='Previous')
+    input.next.action-button(type='button' name='next' value='Next')
+  fieldset.step3
+    h2.fieldSet_title Personal Details
+    h3.fieldSet_subtitle Step 3
+    input(type='text' name='random2' placeholder='something')
+    input(type='text' name='random3' placeholder='something')
+    input(type='text' name='country' placeholder='Country')
+    input(type='text' name='address' placeholder='Address')
+    input.previous.action-button(type='button' name='previous' value='Previous')
+    input.submit.action-button(type='submit' name='submit' value='Submit')
