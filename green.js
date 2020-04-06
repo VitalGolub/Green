@@ -78,6 +78,29 @@ app.get('/api/getExpenses', (req,res) => {
     });
 });
 
+app.get('/api/getUsers', (req,res) => {
+
+    db.all(`SELECT * FROM users`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
+
+app.get('/api/getColumnValueByUsername', (req,res) => {
+
+    db.all(`SELECT username, date, amount, category, description FROM expenses`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
+
+
 app.post('/api/addExpense', (req,res) => {
     let data = JSON.parse(JSON.stringify(req.body));
     console.log(data);
