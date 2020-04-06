@@ -67,7 +67,7 @@ function generateTable(container, user, from, to){
             dateCell.innerHTML = this.date;
 
             let amountCell = document.createElement('td');
-            amountCell.innerHTML = this.amount;
+            amountCell.innerHTML = "$" + this.amount;
 
             let categoryCell = document.createElement('td');
             categoryCell.innerHTML = this.category;
