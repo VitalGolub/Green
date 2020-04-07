@@ -1,0 +1,55 @@
+
+body {
+    background-color: #76b852;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.set2{
+    padding-top: 3rem;
+}
+
+.display-4 {
+    text-align: center;
+}
+
+.lead{
+    text-align: center;
+}
+
+.jumbotron{
+    background-color:#228B22;
+}
+.exchange{
+    background-color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
+.card{
+  margin-left: auto;
+  margin-right: auto;
+  width: 4rem;
+  height: auto;
+  
+  text-align: center;
+  
+}
+
+.card img{
+    height: 200px;
+    width: auto
+   
+}
+
+.card p {
+    height: 150px;
+    width: auto 
+}
+
+.card h5 {
+    height: 50px;
+    width: auto;
+}
+
