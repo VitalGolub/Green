@@ -67,6 +67,17 @@ app.get('/signup' , (request,response) => {
 	
 });
 
+app.get('/goals' , (request,response) => {
+
+	response.render('goals');
+	
+});
+
+app.get('/news' , (request,response) => {
+    response.sendFile(__dirname + '/public/news.html')
+	
+});
+
 app.post('/api/getUserExpenses', (req,res) => {
     let data = JSON.parse(JSON.stringify(req.body));
 
