@@ -1,14 +1,54 @@
 
 
 td, th {
-  border: 1px solid black;
-  padding: 15rem;
+  border: 1px solid silver;
+  padding: 0.5rem;
 }
 
-tr, td{
- 
+th{
+  background-color: #53982E;
+  color: #2a2a2a;
+  text-align: center;
 }
 
 table {
-  padding: 50px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 18px; 
+  color: #444444;
+  background-color: #A2DA84;
+  width: 75%;
+
+}
+
+tr:hover {
+  background-color: #53982E;
+  color: black;
+  cursor: pointer;
+}
+
+body {
+    background-color: #76b852;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+body table {
+  text-align: center;
+  vertical-align: top;
+
+}
+
+.btn-primary,.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #53982E ;
+}
+
+.btn-warning, .btn-warning:hover,.btn-warning:active,.btn-warning:visited{
+    /*background-color: #53982E;*/
+    margin: 3rem;
+}
+
+.jumbotron{
+  background-color: #76b852;
+  width: 10%;
+  height: 10%;
 }
