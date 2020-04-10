@@ -78,6 +78,12 @@ app.get('/news' , (request,response) => {
 	
 });
 
+app.get('/home' , (request,response) => {
+    response.sendFile(__dirname + '/public/homepage.html')
+	
+});
+
+
 app.post('/api/getUserExpenses', (req,res) => {
     let data = JSON.parse(JSON.stringify(req.body));
 

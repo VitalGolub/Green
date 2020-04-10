@@ -1,4 +1,93 @@
 body {
-    background-color: #76b852;;
+    background-color: #76b852;
     font-family: 'Ubuntu', sans-serif;
 }
+
+form{
+    background-color:  #DDDDDD;
+    max-width: 25%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 19%;
+    padding-top: 1rem;
+    margin-top: 5%;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.5);
+    height: fixed;
+    border: 3px solid #001f3f;
+}
+
+
+.list-group{
+   
+    text-align: center;
+    margin-top: 10%;
+    
+}
+
+button{
+    margin: 1rem;
+    
+    -webkit-transition: all 3s ease;
+    -moz-transition: all 3s ease;
+    -o-transition: all 3s ease;
+}
+
+i {
+    margin-top: 0.5rem;
+}
+
+.container{
+    border: 3px solid #001f3f;
+    padding-top: 1rem;
+    border-radius: 1rem;
+    margin-top: 5%;
+    background-color: #ffffff;
+    color:black;
+    padding-bottom: 1rem;
+    
+}
+
+
+
+
+
+button[name='button1']{
+    color: black;
+    background-color: #ffffff;
+    border: 3px solid #001f3f;
+}
+
+button[name='button2']{
+    color: black;
+    background-color: #ffffff;
+    border: 3px solid #001f3f;
+}
+
+button[name='button3']{
+    color: black;
+    background-color: #ffffff;
+    border: 3px solid #001f3f;
+}
+
+button[name='button4']{
+    color: black;
+    background-color: #ffffff;
+    border: 3px solid #001f3f;
+}
+
+button[name='button5']{
+    color: black;
+    background-color: #ffffff;
+    border: 3px solid #001f3f;
+}
+
+button:hover{
+    height: 3rem;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.5);
+    
+    background-color: #76b852;
+}
+
+
