@@ -5,21 +5,24 @@ body {
 
 .main {
     background-color: #FFFFFF;
-    width: 400px;
-    height: 400px;
+    width: 25%;
+    height: 25%;
     
     margin-left: auto;
     margin-right: auto;
-    border-radius: 1.5em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+
+    border-radius: 2rem;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.5);
     text-align: center;
+
+    border: 3px solid #001f3f;
     
 }
 
 hgroup {
 	text-align:center;
     margin-top: 4em;
-    padding-top: 2rem;
+    margin-bottom: 4rem;
 }
 
 
@@ -27,40 +30,40 @@ hgroup {
 width: 76%;
 color: rgb(47, 121, 69);
 font-weight: 700;
-font-size: 14px;
+font-size: 0.8rem;
 
 background: rgba(21, 139, 40, 0.04);
-padding: 10px 20px;
-border: none;
+padding: 0.75rem;
+border: 3px solid #AAAAAA;
 border-radius: 20px;
 outline: none;
 box-sizing: border-box;
-border: 2px solid rgba(0, 100, 0,1);
+
 
 
 text-align: left;
-margin-bottom: 27px;
+margin-bottom: 1rem;
 font-family: 'Ubuntu', sans-serif;
 }
 
 form.form1 {
-    padding-top: 40px;
+    padding-top: 1rem;
    
 }
 
 .password {
-        width: 76%;
+width: 76%;
 color: rgb(38, 50, 56);
 font-weight: 700;
 font-size: 14px;
 
 background: rgba(136, 126, 126, 0.04);
-padding: 10px 20px;
-border: none;
+padding: 0.75rem;
+border: 3px solid #AAAAAA;
 border-radius: 20px;
 outline: none;
 box-sizing: border-box;
-border: 2px solid rgba(0, 100, 0,1);
+
 
 
 text-align: left;
@@ -70,7 +73,7 @@ font-family: 'Ubuntu', sans-serif;
 
 
 .username:focus, .pass:focus {
-    border: 2px solid rgba(0, 0, 0, 0.18) !important;
+    
 
 }
 
@@ -97,7 +100,7 @@ button {
 }
 
 .create {
-    padding-top: 1rem;
+   
 }
 
 .create a{
