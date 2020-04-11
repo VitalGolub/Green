@@ -28,8 +28,8 @@ window.onload = function() {
 
     var cardTitles = this.document.getElementsByTagName('h5');
     var cardDescriptions = this.document.getElementsByClassName('card-text');
-    var cardButtons = this.document.getElementsByClassName('btn btn-primary');
-    var cardImages = this.document.getElementsByClassName('card-img-top');
+    var cardButtons = this.document.getElementsByClassName('btn');
+    //var cardImages = this.document.getElementsByClassName('card-img-top');
 
     console.log(cardDescriptions);
     
@@ -80,7 +80,7 @@ xhr.onreadystatechange = function() {
             }
             cardDescriptions[i].innerText = descriptionParser + "...";
             cardButtons[i].setAttribute('href', articleData.items[i].link);
-            cardImages[i].src = articleData.items[i].thumbnail;
+           // cardImages[i].src = articleData.items[i].thumbnail;
         }
         
         
