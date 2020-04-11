@@ -1,10 +1,28 @@
 
 window.onload = function() {
+
+    let user = "Invalid-User";
+    $.get("/api/getSessionUser", function(data) {
+        user = data;
+    });
+
     document.getElementById("newTransaction").onclick = function() {
         let date = document.getElementById('date').value;
         let description = document.getElementById('description').value;
         let category = document.getElementById('category').value;
         let amount = document.getElementById('amount').value;
+
+
+        let insertJson = {
+            username:user, 
+            category:category, 
+            amount:amount,
+            description:description,
+            date:date
+        };
+
+        if(user != "Invalid-User")
+            $.post("/api/addExpense", insertJson);
 
         table=document.getElementById("table");
         tr=document.getElementById("tr");

@@ -14,6 +14,14 @@ app.use(bodyParser.json());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 
+// session tracking
+app.use(session({
+    genid: (request) => { return uuid(); },
+    resave: false, 
+    saveUninitialized: false,
+    // cookie: { secure: true},
+    secret: 'apollo slackware prepositional expectations',
+}));
 
 //sets up database for green
 let db = new sqlite3.Database('./data/green.db', (error) => {
@@ -47,18 +55,49 @@ db.serialize(() => {
         description TEXT
     )`);
 
+    db.run('INSERT OR IGNORE INTO users (username, firstname, lastname, email, birthday, password) VALUES (?, ?, ?, ?, ?, ?)',
+        ["test", "v", "g", "v.g@gmail.com", "a", "hello"], function(error) {
+        if (error) {
+            console.error(error.message);
+            return;
+        }
+    });
+
 });
 
 //when no endpoint is entered the screen will default to the login page
 app.get('/' , (request,response) => {
-    //response.sendFile(__dirname + '/public/login.html')
 	response.render('login');
 });
 
 //when login is endpoint
 app.get('/login' , (request,response) => {
-    //response.sendFile(__dirname + '/public/login.html')
+    if (request.session && request.session.user && request.session.user != '') { // Check if session exists
+        response.redirect('home');
+        return;
+    }
 
+    response.render('login');
+});
+
+app.post('/processLogin', (request, response) => {
+    let username = request.body.username;
+    let password = request.body.password;
+
+    db.get(`SELECT * FROM users WHERE username = "${username}" AND password = "${password}"`, (err, row) => {
+        if (err) {
+            return;
+        }
+        if(row != null){
+            request.session.user = username;
+            console.log(`Successful login: ${username}`);
+            response.redirect('home');
+        } else {
+            // login failed
+            console.log(`Login failed: ${username}`);
+            response.redirect('login');
+        }
+    });
 });
 
 app.get('/signup' , (request,response) => {
@@ -67,10 +106,12 @@ app.get('/signup' , (request,response) => {
 
 });
 
+app.get('/transactions' , (request,response) => {
+	response.sendFile(__dirname + '/public/transactions.html')
+});
+
 app.get('/goals' , (request,response) => {
-
 	response.render('goals');
-
 });
 
 app.get('/news' , (request,response) => {
@@ -81,6 +122,11 @@ app.get('/news' , (request,response) => {
 app.get('/home' , (request,response) => {
     response.sendFile(__dirname + '/public/homepage.html')
 
+});
+
+app.get('/logout' , (request,response) => {
+    request.session.user = '';
+    response.redirect("login");
 });
 
 
@@ -140,6 +186,15 @@ app.post('/api/addExpense', (req,res) => {
         }
     });
 });
+
+app.get('/api/getSessionUser', function(req, res) {
+    if (req.session && req.session.user) { // Check if session exists
+        let user = req.session.user;
+        res.send(user);
+    } else {
+        res.send("Invalid-User");
+    }
+  });
 
 
 app.get('/test', (request,response) => {
