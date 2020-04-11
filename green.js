@@ -1,4 +1,4 @@
-var express = require('express'); 
+var express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 let session = require('express-session');
@@ -18,7 +18,7 @@ app.set('view engine', 'pug');
 //sets up database for green
 let db = new sqlite3.Database('./data/green.db', (error) => {
     if (error) {
-        console.log("Error connecting to database"); 
+        console.log("Error connecting to database");
         return;
     }
 
@@ -29,11 +29,11 @@ let db = new sqlite3.Database('./data/green.db', (error) => {
 db.serialize(() => {
 
     db.run(`CREATE TABLE IF NOT EXISTS users(
-        username TEXT PRIMARY KEY, 
-        firstname TEXT, 
-        lastname TEXT, 
+        username TEXT PRIMARY KEY,
+        firstname TEXT,
+        lastname TEXT,
         email TEXT,
-        birthDay DATE, 
+        birthDay DATE,
         password VARCHAR(255)
     )`);
 
@@ -55,32 +55,32 @@ app.get('/' , (request,response) => {
 	response.render('login');
 });
 
-//when login is endpoint 
+//when login is endpoint
 app.get('/login' , (request,response) => {
     //response.sendFile(__dirname + '/public/login.html')
-	
+
 });
 
 app.get('/signup' , (request,response) => {
     //response.sendFile(__dirname + '/public/login.html')
 	response.render('signup');
-	
+
 });
 
 app.get('/goals' , (request,response) => {
 
 	response.render('goals');
-	
+
 });
 
 app.get('/news' , (request,response) => {
     response.sendFile(__dirname + '/public/news.html')
-	
+
 });
 
 app.get('/home' , (request,response) => {
     response.sendFile(__dirname + '/public/homepage.html')
-	
+
 });
 
 
@@ -132,7 +132,7 @@ app.post('/api/addExpense', (req,res) => {
 
     // Do something, like query a database or save data
 
-    db.run('INSERT INTO expenses (username, date, amount, category, description) VALUES (?, ?, ?, ?, ?)', 
+    db.run('INSERT INTO expenses (username, date, amount, category, description) VALUES (?, ?, ?, ?, ?)',
                     [user, date, amount, category, description], function(error) {
         if (error) {
             console.error(error.message);
@@ -147,7 +147,7 @@ app.get('/test', (request,response) => {
 });
 
 
-app.set('port', 3000); 
+app.set('port', 3000);
 
 app.listen(app.get('port'), () => {
     console.log('Node.js/Express is listening on port ' + app.get('port'));

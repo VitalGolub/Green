@@ -20,15 +20,15 @@ form{
 
 
 .list-group{
-   
+
     text-align: center;
     margin-top: 10%;
-    
+
 }
 
 button{
     margin: 1rem;
-    
+
     -webkit-transition: all 3s ease;
     -moz-transition: all 3s ease;
     -o-transition: all 3s ease;
@@ -46,7 +46,7 @@ i {
     background-color: #ffffff;
     color:black;
     padding-bottom: 1rem;
-    
+
 }
 
 
@@ -86,8 +86,6 @@ button[name='button5']{
 button:hover{
     height: 3rem;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.5);
-    
+
     background-color: #76b852;
 }
-
-
