@@ -61,12 +61,41 @@ body table {
    background-color: #dcfffd;
  }
 
-
-
 .jumbotron{
   background-color: #dcfffd;
   border-bottom: black solid 1px;
   border-radius: 0px;
   text-align: center;
 
+}
+
+#dateForm input[type=date] {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #dcfffd;
+  margin: 0.5rem;
+}
+
+#dateForm input[type=submit] {
+  border: 1px solid black;
+  border-radius: 2px;
+
+  background-color: #87ceeb ;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 1rem;
+}
+
+#dateForm input[type=submit]:hover{
+  background-color: #dcfffd;
+}
+
+label {
+  color: black;
+  size: 125%;
+}
+
+#dateForm {
+  float: right;
+  margin-bottom: 3rem;
 }
