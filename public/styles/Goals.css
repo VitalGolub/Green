@@ -1,13 +1,13 @@
 body {
     /* background-color: #76b852; */
-    background-color: #DCFFFD;
+    background-color: #e9ecef;
     font-family: 'Ubuntu', sans-serif;
 }
 
 
 .set1{
     text-align: center;
-    padding-top: 15%;
+    padding-top: 5%;
 
 }
 
@@ -25,7 +25,7 @@ body {
 }
 
 .card{
-  background-color: #82D305;
+  background-color: white;
 }
 
 .btn{
