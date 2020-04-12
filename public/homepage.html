@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Socket.io -->
+	<script type="text/javascript" src="socketio/socket.io.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script type='text/javascript' src='JavaScript/homepage.js'></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/homepage.css">
+    <title>HomePage</title>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <script>
+      $(function(){
+        $("#nav-placeholder").load("navBar.html",function(){
+          var liArray = $("li").toArray();
+          $('#navbarSupportedContent ul li').removeClass("active");
+          $(liArray[0]).addClass('active');
+        });
+      });
+    </script>
+    <form>
+
+        <div class="container">
+          <i class="fa fa-user" aria-hidden="true" style="font-size:48px;"></i>
+          <h1 name='welcomeMessage'></h1>
+          <h4 name="day">Day of the week</h4>
+         <h4 name="date">Date</h4>
+       </div>
+    <div class="list-group">
+        <button type="button" class="btn" name="button1">View Transactions for this Week</button>
+        <button type="button" class="btn" name="button2">View Transactions for this Month</button>
+        <button type="button" class="btn" name="button3">View Spending History over the Year</button>
+        <button type="button" class="btn" name="button4">View Specified Month</button>
+        <button type="button" class="btn"name="button5" >Add Transactions</button>
+		
+		<!-- Button for admin viewing creation logs obtained via sockets -->
+		<button type="button" class="btn" name="btnAdminLog">View Registration Log</button>
+      </div>
+	  
+	<!-- Modal -->  
+	<div id = "theModal" class="modal">
+	
+		<!-- Modal Inner Contents -->
+		<div id = "mContent">
+			<div id="mHeader">
+				<span class = "close">&times;</span>	<!--Creates a close button-->
+				<h1>Registration Log</h1>
+			</div>
+			
+			<div id = "mBody">
+				<div>hello </div>
+			</div>
+		</div>
+	</div>	
+	  
+    </form>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles/homepage.css">
+  </body>
+</html>
