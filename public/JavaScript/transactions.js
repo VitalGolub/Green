@@ -1,6 +1,21 @@
 
 window.onload = function() {
 
+    // Listen to click event on the submit button
+  // Listen to submit event on the <form> itself!
+    $('#dateForm').submit(function (e) {
+
+        e.preventDefault();
+
+        var from = $("#from").val();
+        var to = $("#to").val();
+
+        $("table").empty();
+        let table=document.getElementById("table");
+        generateTable(table, user, from, to);
+    });
+
+
     let user = "Invalid-User";
     $.get("/api/getSessionUser", function(data) {
         user = data;
