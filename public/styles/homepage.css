@@ -1,0 +1,129 @@
+body {
+    /* background-color: #76b852; */
+    background-color:white;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.jumbotron{
+    background-color: #e9ecef;
+    /* border-bottom: 3px solid #93827F; */
+}
+
+.container{
+    /* border: 3px solid #001f3f; */
+    /* padding-top: 1rem; */
+    border-radius: 1rem;
+    /* margin-top: 5%; */
+    background-color: #e9ecef;
+    color:black;
+    padding-bottom: 1rem;
+    text-align: center;
+
+}
+
+.list-group{
+    /* text-align: center; */
+    display: inline-block;
+}
+
+button{
+    margin: 1rem;
+
+    -webkit-transition: all 3s ease;
+    -moz-transition: all 3s ease;
+    -o-transition: all 3s ease;
+}
+
+i {
+    margin-top: 0.5rem;
+}
+
+button[name='button1']{
+    color: black;
+    background-color: #c0c0c0;
+    /* border: 3px solid #001f3f; */
+}
+
+button[name='button2']{
+    color: black;
+    background-color: #c0c0c0;
+    /* border: 3px solid #001f3f; */
+}
+
+button[name='button3']{
+    color: black;
+    background-color: #c0c0c0;
+    /* border: 3px solid #001f3f; */
+}
+
+button[name='button4']{
+    color: black;
+    background-color: #c0c0c0;
+    /* border: 3px solid #001f3f; */
+}
+
+button[name='button5']{
+    color: black;
+    background-color: #c0c0c0;
+    /* border: 3px solid #001f3f; */
+}
+button[name='btnAdminLog']{
+	  visibility: hidden;
+    color: black;
+    background-color: #c0c0c0;
+    /* border: 3px solid #001f3f; */
+}
+
+
+button:hover{
+    /* height: 3rem; */
+    box-shadow: 0px 11px 35px 2px rgba(0, 100, 0, 0.5);
+    /* background-color: white;; */
+}
+
+
+
+#theModal{
+	display: block;
+	visibility: hidden;
+	z-index: 1;			/*Puts it above other content*/
+	overflow: auto;		/*Allows scrolling*/
+	/*background-color: #f542f5;*/
+
+
+	width: 50%;
+	height: 80%;
+	margin-top: 4.1rem;
+	margin-left: 25%;
+	background-color: rgba(0,0,0,0.4);		/*Makes the log semi transparent*/
+
+
+}
+
+/* Modal Content */
+#mContent {
+ /* position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+}
+
+#mHeader {
+	/*width: 30rem;
+	bottom: 4rem;
+	height: 4rem;*/
+	/*padding-top: 4rem;*/
+	/*
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;*/
+}
+
+#mBody {
+	background-color: white;
+	width: 40%;
+	margin-left: 25%;
+}/*{padding: 2px 16px;}*/

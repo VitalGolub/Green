@@ -1,0 +1,175 @@
+doctype
+html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
+  link(rel='stylesheet' type='text/css' href='styles/Goals.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  script(type='text/javascript' src='https://code.jquery.com/jquery-3.0.0.min.js')
+  script(type='text/javascript' src='JavaScript/goals.js')
+  title Goals
+div(id = "nav-placeholder")
+script(type='text/javascript').
+  $(function(){
+    $("#nav-placeholder").load("navBar.html",function(){
+      var liArray = $("li").toArray();
+      $('#navbarSupportedContent ul li').removeClass("active");
+      $(liArray[2]).addClass('active');
+    });
+  });
+.set1
+  .container
+    .row
+      .col-sm
+        .card(style='width: 18rem;')
+          // <img src="..." class="card-img-top" alt="...">
+          i.fa.fa-plane(style='font-size:48px;')
+          .card-body
+            h5.card-title Take a Trip
+            p.card-text Start saving for your next adventure!
+            .buttonset(id='buttonSet')
+              btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
+
+
+      .col-sm
+        .card(style='width: 18rem;')
+          // <img src="..." class="card-img-top" alt="...">
+          .card-body
+            i.fa.fa-car(style='font-size:48px;')
+            h5.card-title Buy a Car
+            p.card-text Start saving for that fancy new ride you have been looking at
+            .buttonset(id='buttonSet')
+              btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
+      .col-sm
+        .card(style='width: 18rem;')
+          // <img src="..." class="card-img-top" alt="...">
+          .card-body
+            i.fa.fa-graduation-cap(style='font-size:48px;')
+            h5.card-title Save for School
+            p.card-text Put some money towards your education
+            .buttonset(id='buttonSet')
+              btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
+.set2
+  .container
+    .row
+      .col-sm
+        .card(style='width: 18rem;')
+          // <img src="..." class="card-img-top" alt="...">
+          .card-body
+            i.fa.fa-home(style='font-size:48px;')
+            h5.card-title Buy a Home
+            p.card-text Start putting money away for your new home
+            .buttonset(id='buttonSet')
+              btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
+      .col-sm
+        .card(style='width: 18rem;')
+          // <img src="..." class="card-img-top" alt="...">
+          .card-body
+            i.fa.fa-wrench(style='font-size:48px;')
+            h5.card-title Home Improvment
+            p.card-text Start saving for some much needed renovations
+            .buttonset(id='buttonSet')
+              btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
+      .col-sm
+        .card(style='width: 18rem;')
+          // <img src="..." class="card-img-top" alt="...">
+          .card-body
+            i.fa.fa-male(style='font-size:48px;')
+            h5.card-title Retirement Savings
+            p.card-text Start saving for your retirement
+            .buttonset(id='buttonSet')
+              btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
+.set3
+  .container
+    .row
+      .col-sm
+        .card(style='width: 18rem;')
+          // <img src="..." class="card-img-top" alt="...">
+          .card-body
+            i.fa.fa-credit-card(style='font-size:48px;')
+            h5.card-title Crush Credit Card Debt
+            p.card-text Crush your credit card debt and start building your credit score
+            .buttonset(id='buttonSet')
+              btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
+      .col-sm
+        .card(style='width: 18rem;')
+          // <img src="..." class="card-img-top" alt="...">
+          .card-body
+            i.fa.fa-users(style='font-size:48px;')
+            h5.card-title Eliminate my loans
+            p.card-text Get those pesky loans off your head
+            .buttonset(id='buttonSet')
+              btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
+      .col-sm
+        .card(style='width: 18rem;')
+          // <img src="..." class="card-img-top" alt="...">
+          .card-body
+            i.fa.fa-umbrella(style='font-size:48px;')
+            h5.card-title Rainy Day
+            p.card-text Its always good to have an emergency fund!
+            .buttonset(id='buttonSet')
+              btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
+
+div.modal.fade(id='setModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+  div.modal-dialog.modal-dialog-centered(role='document')
+    div.modal-content
+      div.modal-header
+        h5.modal-title(id='exampleModalLongTitle') Total Saving Goal
+        btn.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times
+      div.modal-body
+        label() Enter saving Goal:
+        input(type='number' id='totalGoal' name='totalGoal' placeholder='Total Goal')
+      div.modal-footer
+        btn.btn.btn-secondary(type='button' data-dismiss='modal') Close
+        btn.btn.btn-primary(type='button' onclick='myFunc()' data-dismiss='modal') Save Changes
+
+div.modal.fade(id='viewModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+  div.modal-dialog.modal-dialog-centered(role='document')
+    div.modal-content
+      div.modal-header
+        h5.modal-title(id='exampleModalLongTitle') Progress
+        btn.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times
+      div.modal-body
+      div.modal-footer
+        btn.btn.btn-secondary(type='button' data-dismiss='modal') Close
+
+div.modal.fade(id='insertModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+  div.modal-dialog.modal-dialog-centered(role='document')
+    div.modal-content
+      div.modal-header
+        h5.modal-title(id='exampleModalLongTitle') Amount to add
+        btn.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times
+      div.modal-body
+        label() Enter saving Goal:
+        input(type='number' id='amount' name='Amount' placeholder='Amount')
+      div.modal-footer
+        btn.btn.btn-secondary(type='button' data-dismiss='modal') Close
+        btn.btn.btn-primary(type='button' onclick='myFunc()' data-dismiss='modal') Save Changes
+
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
+link(rel='stylesheet' type='text/css' href='styles/Goals.css')

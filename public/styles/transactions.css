@@ -2,13 +2,110 @@
 
 td, th {
   border: 1px solid black;
-  padding: 15rem;
+  padding: 0.5rem;
 }
 
-tr, td{
- 
+th{
+  background-color: #85858585 ;
+  color: #2a2a2a;
+  text-align: center;
 }
 
 table {
-  padding: 50px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 18px;
+  /* color: #444444; */
+  background-color: #e9ecef;
+  width: 75%;
+  margin-bottom: 5%;
+
+}
+
+tr:first-child{
+  background-color: #82d305;
+}
+
+tr:first-child:hover{
+  background-color: #82d305;
+}
+
+tr:hover{
+  background-color: #dcfffd;
+  color: black;
+  cursor: pointer;
+}
+
+body {
+    background-color: white;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body table {
+  text-align: center;
+  vertical-align: top;
+
+}
+
+.btn-danger,.btn-danger:hover, .btn-danger:active:focus, .btn-danger:visited {
+  /* close */
+  background-color: #8e8d8a;
+  color: #333333;
+}
+
+.btn-primary,.btn-primary:hover, .btn-primary:active:focus, .btn-primary:visited {
+  /* enter transaction */
+  background-color: #ff3939 ;
+  color: #222222;
+}
+
+.btn-warning,.btn-warning:active,.btn-warning:visited{
+  /* New transaction */
+    margin-bottom: 3rem;
+    background-color: #e9ecef;
+    border-color: black;
+}
+
+ .btn-warning:hover{
+   background-color: #e9ecef;
+ }
+
+.jumbotron{
+  background-color: #e9ecef;
+  /* border-bottom: black solid 1px; */
+  border-radius: 0px;
+  text-align: center;
+
+}
+
+#dateForm input[type=date] {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #e9ecef;
+  margin: 0.5rem;
+}
+
+#dateForm input[type=submit] {
+  border: 1px solid black;
+  border-radius: 2px;
+
+  background-color: #e9ecef;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 1rem;
+}
+
+#dateForm input[type=submit]:hover{
+  background-color: #e9ecef;
+  border-color: green;
+}
+
+label {
+  color: black;
+  size: 125%;
+}
+
+#dateForm {
+  float: right;
+  margin-bottom: 3rem;
 }

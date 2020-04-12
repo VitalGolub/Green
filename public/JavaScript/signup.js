@@ -1,4 +1,18 @@
+
+
 window.onload = function() {
+
+$('.step2').hide();						//Hides the other two windows, only showing step1 initially
+$('.step3').hide();
+
+$('.submit').click(function() {
+	let socket = io();
+	socket.emit('Send', {
+			//data.username: TODO,
+			username: "User ",
+			message: "has registered",
+		});
+});
 
 //will be used to shuffle throught sets
 var current_fs, next_fs, previous_fs; 
@@ -13,8 +27,8 @@ $(".next").click(function(){
 	current_fs = $(this).parent();
 	next_fs = $(this).parent().next();
 	
-	//show the next fieldset
-	next_fs.show(); 
+	
+	
 	//hide the current fieldset with style
 	current_fs.animate({opacity: 0}, {
 		step: function(now, mx) {
@@ -32,12 +46,17 @@ $(".next").click(function(){
 		complete: function(){
 			current_fs.hide();
 			animating = false;
-		},
+			
+			//show the next fieldset
+			next_fs.show();
+		}, 
 		//using the easing plugin for jquery UI
 		//There are differnt types of easing 
 		//I use easeInOutElastic as a place holder
 		easing: 'easeInOutElastic'
 	});
+	 
+	//theStep2[0].style.display = 'inline';
 });
 
 $(".previous").click(function(){
@@ -47,8 +66,8 @@ $(".previous").click(function(){
 	current_fs = $(this).parent();
 	previous_fs = $(this).parent().prev();
 	
-	//show the previous fieldset
-	previous_fs.show(); 
+	
+	 
 	//hide the current fieldset with style
 	current_fs.animate({opacity: 0}, {
 		step: function(now, mx) {
@@ -65,6 +84,9 @@ $(".previous").click(function(){
 		complete: function(){
 			current_fs.hide();
 			animating = false;
+			
+			//show the previous fieldset
+			previous_fs.show();
 		}, 
 		//using the easing plugin for jquery UI
 		//There are differnt types of easing 
