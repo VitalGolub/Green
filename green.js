@@ -41,10 +41,25 @@ db.serialize(() => {
         firstname TEXT,
         lastname TEXT,
         email TEXT,
-        birthDay DATE,
-        password VARCHAR(255)
+        dateOfBirth DATE,
+        password VARCHAR(255),
+        phoneNumber TEXT,
+        country TEXT,
+        address TEXT
     )`);
 
+    db.run(`CREATE TABLE IF NOT EXISTS budgets(
+        username TEXT PRIMARY KEY,
+        entertainment REAL,
+        education REAL,
+        health REAL,
+        groceries REAL,
+        restaurants REAL,
+        utilities REAL,
+        auto REAL,
+        gifts REAL,
+        investments REAL
+    )`);
 
     db.run(`CREATE TABLE IF NOT EXISTS expenses(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -55,13 +70,14 @@ db.serialize(() => {
         description TEXT
     )`);
 
-    db.run('INSERT OR IGNORE INTO users (username, firstname, lastname, email, birthday, password) VALUES (?, ?, ?, ?, ?, ?)',
-        ["test", "v", "g", "v.g@gmail.com", "a", "hello"], function(error) {
-        if (error) {
-            console.error(error.message);
-            return;
-        }
-    });
+    //This has been remove as you can now create your own accounts
+    // db.run('INSERT OR IGNORE INTO users (username, firstname, lastname, email, dateOfBirth, password, phoneNumber, country, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    //     ["test", "v", "g", "v.g@gmail.com", "2020-12-12", "hello", "647-647-6477", "Canada", "12 cool cat road"], function(error) {
+    //     if (error) {
+    //         console.error(error.message);
+    //         return;
+    //     }
+    // });
 
 });
 
@@ -100,6 +116,71 @@ app.post('/processLogin', (request, response) => {
     });
 });
 
+app.post('/processSignup', (request, response) => {
+    console.log(request.body);
+
+    var username = request.body.username;
+
+    db.get(`SELECT * FROM users WHERE username = "${username}"`, (err, row) => {
+        if (err) {
+            return;
+        }
+        if(row != null){
+            response.redirect('signup');
+            console.log(`${username} already exists`);
+            return;
+        } else {
+
+            if(request.body.pass != request.body.cpass){
+                response.redirect('signup');
+                console.log(`Passwords do not match`);
+                return;
+            }
+
+//            var username = request.body.username;
+            var firstname = request.body.firstName;
+            var lastname = request.body.lastName;
+            var email = request.body.email;
+            var dob = request.body.dateOfBirth;
+            var pass = request.body.pass;
+            var phoneNumber = request.body.phoneNumber;
+            var country = request.body.country;
+            var address = request.body.address;
+
+            db.run('INSERT OR IGNORE INTO users (username, firstname, lastname, email, dateOfBirth, password, phoneNumber, country, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [username, firstname, lastname, email, dob, pass, phoneNumber, country, address], function(error) {
+
+                if (error) {
+                    console.error(error.message);
+                    return;
+                }
+            });
+
+            var entertainment = request.body.entertainment;
+            var education = request.body.education;
+            var health = request.body.health;
+            var groceries = request.body.groceries;
+            var restaurants = request.body.restaurants;
+            var utilities = request.body.utilities;
+            var auto = request.body.auto;
+            var gifts = request.body.gifts;
+            var investments = request.body.investments;
+
+            db.run('INSERT OR IGNORE INTO budgets (username, entertainment, education, health, groceries, restaurants, utilities, auto, gifts, investments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [username, entertainment, education, health, groceries, restaurants, utilities, auto, gifts, investments], function(error) {
+
+                if (error) {
+                    console.error(error.message);
+                    return;
+                }
+            });
+
+            response.redirect('login');
+            console.log(`${username} successfully registered`);
+        }
+    });
+});
+
 app.get('/signup' , (request,response) => {
     //response.sendFile(__dirname + '/public/login.html')
 	response.render('signup');
@@ -107,14 +188,29 @@ app.get('/signup' , (request,response) => {
 });
 
 app.get('/transactions' , (request,response) => {
+    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+        response.redirect('login');
+        return;
+    }
+
 	response.sendFile(__dirname + '/public/transactions.html')
 });
 
 app.get('/goals' , (request,response) => {
+    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+        response.redirect('login');
+        return;
+    }
+
 	response.render('goals');
 });
 
 app.get('/news' , (request,response) => {
+    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+        response.redirect('login');
+        return;
+    }
+
     response.sendFile(__dirname + '/public/news.html')
 
 });
