@@ -5,7 +5,7 @@ body {
 }
 
 form{
-    background-color:  #DDDDDD;
+    background-color:  #82d305;
     max-width: 25%;
     padding-right: 1rem;
     padding-left: 1rem;
@@ -44,7 +44,7 @@ i {
     padding-top: 1rem;
     border-radius: 1rem;
     margin-top: 5%;
-    background-color: #ffffff;
+    background-color: #87ceeb;
     color:black;
     padding-bottom: 1rem;
 
@@ -56,37 +56,37 @@ i {
 
 button[name='button1']{
     color: black;
-    background-color: #ffffff;
+    background-color: #87ceeb;
     border: 3px solid #001f3f;
 }
 
 button[name='button2']{
     color: black;
-    background-color: #ffffff;
+    background-color: #87ceeb;
     border: 3px solid #001f3f;
 }
 
 button[name='button3']{
     color: black;
-    background-color: #ffffff;
+    background-color: #87ceeb;
     border: 3px solid #001f3f;
 }
 
 button[name='button4']{
     color: black;
-    background-color: #ffffff;
+    background-color: #87ceeb;
     border: 3px solid #001f3f;
 }
 
 button[name='button5']{
     color: black;
-    background-color: #ffffff;
+    background-color: #87ceeb;
     border: 3px solid #001f3f;
 }
 
 button:hover{
-    height: 3rem;
+    /* height: 3rem; */
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.5);
 
-    background-color: #76b852;
+    background-color: #dcfffd;
 }

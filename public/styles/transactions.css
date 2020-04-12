@@ -14,23 +14,21 @@ th{
 table {
   text-align: center;
   margin: 0 auto;
-  font-size: 18px; 
+  font-size: 18px;
   color: #444444;
-  background-color: #c5c0ad;
+  background-color: #87ceeb;
   width: 75%;
 
 }
 
 tr:hover {
-  background-color: #b79c79;
+  background-color: #dcfffd;
   color: black;
   cursor: pointer;
 }
-/*
-#eae7dc #d8c3a5 #8e8d8a #e98074 #e85a4f
-*/
+
 body {
-    background-color: #dcfffd/*8e8d8a*/;
+    background-color: #82d305;
     font-family: 'Ubuntu', sans-serif;
 
 }
@@ -42,7 +40,7 @@ body table {
 
 .btn-danger,.btn-danger:hover, .btn-danger:active:focus, .btn-danger:visited {
   /* close */
-  background-color: #8e8d8a  ;
+  background-color: #8e8d8a;
   color: #333333;
 }
 
@@ -52,23 +50,23 @@ body table {
   color: #222222;
 }
 
-.btn-warning, .btn-warning:hover,.btn-warning:active,.btn-warning:visited{
+.btn-warning,.btn-warning:active,.btn-warning:visited{
   /* New transaction */
     margin-bottom: 3rem;
-    background-color: #c5c0ad ;
-    color: #333333;
+    background-color: #87ceeb ;
+    /* color: #333333; */
+    border-color: black;
 }
+ .btn-warning:hover{
+   background-color: #dcfffd;
+ }
 
 
 
 .jumbotron{
-  background-color: #c5c0ad; 
-  border: solid 1px black;
-  width: 50%;
-  height: 10%;
-  margin-top: 3rem;
-  margin-left: 19rem;
-  align-self: center;
-  padding: 0.5rem;
-}
+  background-color: #dcfffd;
+  border-bottom: black solid 1px;
+  border-radius: 0px;
+  text-align: center;
 
+}
