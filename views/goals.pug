@@ -30,7 +30,7 @@ script(type='text/javascript').
           .card-body
             h5.card-title Take a Trip
             p.card-text Start saving for your next adventure!
-            .buttonset
+            .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
               btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
@@ -43,7 +43,7 @@ script(type='text/javascript').
             i.fa.fa-car(style='font-size:48px;')
             h5.card-title Buy a Car
             p.card-text Start saving for that fancy new ride you have been looking at
-            .buttonset
+            .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
               btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
@@ -54,7 +54,7 @@ script(type='text/javascript').
             i.fa.fa-graduation-cap(style='font-size:48px;')
             h5.card-title Save for School
             p.card-text Put some money towards your education
-            .buttonset
+            .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
               btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
@@ -68,7 +68,7 @@ script(type='text/javascript').
             i.fa.fa-home(style='font-size:48px;')
             h5.card-title Buy a Home
             p.card-text Start putting money away for your new home
-            .buttonset
+            .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
               btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
@@ -79,7 +79,7 @@ script(type='text/javascript').
             i.fa.fa-wrench(style='font-size:48px;')
             h5.card-title Home Improvment
             p.card-text Start saving for some much needed renovations
-            .buttonset
+            .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
               btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
@@ -90,7 +90,7 @@ script(type='text/javascript').
             i.fa.fa-male(style='font-size:48px;')
             h5.card-title Retirement Savings
             p.card-text Start saving for your retirement
-            .buttonset
+            .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
               btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
@@ -104,7 +104,7 @@ script(type='text/javascript').
             i.fa.fa-credit-card(style='font-size:48px;')
             h5.card-title Crush Credit Card Debt
             p.card-text Crush your credit card debt and start building your credit score
-            .buttonset
+            .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
               btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
@@ -115,7 +115,7 @@ script(type='text/javascript').
             i.fa.fa-users(style='font-size:48px;')
             h5.card-title Eliminate my loans
             p.card-text Get those pesky loans off your head
-            .buttonset
+            .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
               btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
@@ -126,7 +126,7 @@ script(type='text/javascript').
             i.fa.fa-umbrella(style='font-size:48px;')
             h5.card-title Rainy Day
             p.card-text Its always good to have an emergency fund!
-            .buttonset
+            .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
               btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
@@ -135,37 +135,40 @@ div.modal.fade(id='setModal' tabindex='-1' role='dialog' aria-labelledby='exampl
   div.modal-dialog.modal-dialog-centered(role='document')
     div.modal-content
       div.modal-header
-        h5.modal-title(id='exampleModalLongTitle') Modal Title1
+        h5.modal-title(id='exampleModalLongTitle') Total Saving Goal
         btn.close(type='button' data-dismiss='modal' aria-label='Close')
           span(aria-hidden='true') &times
       div.modal-body
+        label() Enter saving Goal:
+        input(type='number' id='amount' name='Amount' placeholder='Amount')
       div.modal-footer
         btn.btn.btn-secondary(type='button' data-dismiss='modal') Close
-        btn.btn.btn-primary(type='button') Save Changes
+        btn.btn.btn-primary(type='button' onclick='myFunc()' data-dismiss='modal') Save Changes
 
 div.modal.fade(id='viewModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
   div.modal-dialog.modal-dialog-centered(role='document')
     div.modal-content
       div.modal-header
-        h5.modal-title(id='exampleModalLongTitle') Modal Title2
+        h5.modal-title(id='exampleModalLongTitle') Progress
         btn.close(type='button' data-dismiss='modal' aria-label='Close')
           span(aria-hidden='true') &times
       div.modal-body
       div.modal-footer
         btn.btn.btn-secondary(type='button' data-dismiss='modal') Close
-        btn.btn.btn-primary(type='button') Save Changes
 
 div.modal.fade(id='insertModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
   div.modal-dialog.modal-dialog-centered(role='document')
     div.modal-content
       div.modal-header
-        h5.modal-title(id='exampleModalLongTitle') Modal Title3
+        h5.modal-title(id='exampleModalLongTitle') Amount to add
         btn.close(type='button' data-dismiss='modal' aria-label='Close')
           span(aria-hidden='true') &times
       div.modal-body
+        label() Enter saving Goal:
+        input(type='number' id='amount' name='Amount' placeholder='Amount')
       div.modal-footer
         btn.btn.btn-secondary(type='button' data-dismiss='modal') Close
-        btn.btn.btn-primary(type='button') Save Changes
+        btn.btn.btn-primary(type='button' onclick='myFunc()' data-dismiss='modal') Save Changes
 
 script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
