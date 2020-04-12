@@ -1,5 +1,6 @@
 body {
-    background-color: #76b852;
+    /* background-color: #76b852; */
+    background-color: #DCFFFD;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -7,18 +8,26 @@ body {
 .set1{
     text-align: center;
     padding-top: 15%;
- 
+
 }
 
 
 .set2{
     text-align: center;
     padding-top: 3rem;
-   
+
 }
 
 .set3{
     text-align: center;
     padding-top: 3rem;
-   
+
+}
+
+.card{
+  background-color: #82D305;
+}
+
+.btn{
+  margin: 0.4rem;
 }

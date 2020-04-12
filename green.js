@@ -17,7 +17,7 @@ app.set('view engine', 'pug');
 // session tracking
 app.use(session({
     genid: (request) => { return uuid(); },
-    resave: false, 
+    resave: false,
     saveUninitialized: false,
     // cookie: { secure: true},
     secret: 'apollo slackware prepositional expectations',
