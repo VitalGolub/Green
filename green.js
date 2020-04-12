@@ -209,6 +209,21 @@ app.get('/test', (request,response) => {
 
 app.set('port', 3000);
 
-app.listen(app.get('port'), () => {
+var server = app.listen(app.get('port'), () => {
     console.log('Node.js/Express is listening on port ' + app.get('port'));
 })
+
+let soio = require('socket.io')(server);
+
+soio.on('connection', function(socket) {
+	console.log('User has connected.');
+	socket.on('Leave', function(){
+		console.log('User has left.');
+	});
+	
+	socket.on('Send', function(data){
+		console.log(data.username + ": " + data.message);
+		soio.emit('admin notification', data);
+	});
+})
+

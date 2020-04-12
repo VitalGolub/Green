@@ -5,6 +5,15 @@ window.onload = function() {
 $('.step2').hide();						//Hides the other two windows, only showing step1 initially
 $('.step3').hide();
 
+$('.submit').click(function() {
+	let socket = io();
+	socket.emit('Send', {
+			//data.username: TODO,
+			username: "User ",
+			message: "has registered",
+		});
+});
+
 //will be used to shuffle throught sets
 var current_fs, next_fs, previous_fs; 
 

@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "pug": "^2.0.4",
+    "socket.io": "^2.3.0",
     "sqlite": "^4.0.2",
     "sqlite3": "^4.1.1",
     "uuid": "^7.0.3"

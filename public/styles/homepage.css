@@ -83,6 +83,13 @@ button[name='button5']{
     background-color: #87ceeb;
     border: 3px solid #001f3f;
 }
+button[name='btnAdminLog']{
+	visibility: hidden;
+    color: black;
+    background-color: #ffffff;
+    border: 3px solid #001f3f;
+}
+
 
 button:hover{
     /* height: 3rem; */
@@ -90,3 +97,49 @@ button:hover{
 
     background-color: #dcfffd;
 }
+
+
+#theModal{
+	display: block;
+	visibility: hidden;
+	z-index: 1;			/*Puts it above other content*/
+	overflow: auto;		/*Allows scrolling*/
+	/*background-color: #f542f5;*/
+	
+	
+	width: 50%;
+	height: 80%;
+	margin-top: 4.1rem;
+	margin-left: 25%;
+	background-color: rgba(0,0,0,0.4);		/*Makes the log semi transparent*/
+	
+	
+}
+
+/* Modal Content */
+#mContent {
+ /* position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+}
+
+#mHeader {
+	/*width: 30rem;
+	bottom: 4rem;
+	height: 4rem;*/
+	/*padding-top: 4rem;*/
+	/*
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;*/
+}
+
+#mBody {
+	background-color: white;
+	width: 40%;
+	margin-left: 25%;
+}/*{padding: 2px 16px;}*/

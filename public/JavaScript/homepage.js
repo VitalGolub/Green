@@ -6,7 +6,31 @@ window.onload = function() {
     var introductionMessage = this.document.getElementsByName('welcomeMessage');
    
    
-   
+	var justTheUserName = "";
+	let btnAdmin = document.getElementsByName('btnAdminLog');
+	let theModal =  document.getElementById('theModal');
+	var socket;
+	
+	var xClose = document.getElementsByClassName('close');
+	xClose[0].onclick = function(){
+		theModal.style.visibility = "hidden";
+	}
+	
+	btnAdmin[0].onclick = function(){
+		console.log('clicked');
+		theModal.style.visibility = "visible";
+		/*socket.on('admin notification', function(data) {
+			console.log('User has registered');
+		});*/
+		socket.on('admin notification', function(data) {
+			let mData = document.getElementById('mBody');
+			mData.innerHTML += "<div>" + data.username + data.message + "</div>";
+			console.log('yea');
+		})
+	
+		
+	}
+	
    //This ajax call get the date and day of the week and displays it on the screen
     $.ajax({
         method: 'GET',
@@ -33,6 +57,7 @@ window.onload = function() {
             success: function (data) {
                 
                 userName += "Welcome " + data + "!";
+				justTheUserName = data;
             
              }
              
@@ -41,7 +66,15 @@ window.onload = function() {
             introductionMessage[0].innerText = userName;
        
 
-
+			//CHANGE TO ADMIN
+			//If the user is admin, allow them to access the registration log
+			if(justTheUserName == "test"){
+				btnAdmin[0].style.visibility = "visible";
+				socket = io();
+			}
+			else{
+				btnAdmin[0].style.visibility = "hidden";
+			}
 
 
 

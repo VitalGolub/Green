@@ -8,6 +8,7 @@ head
   link(rel='stylesheet' href='path/to/font-awesome/css/font-awesome.min.css')
   script(type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
   link(rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css")
+  script(type = 'text/javascript' src='socketio/socket.io.js')
   title Sign Up
 body  
   form
@@ -43,4 +44,4 @@ body
       input#inputs(type='text' name='Gifts' placeholder='Gifts & Donations')
       input#inputs(type='text' name='Investments' placeholder='Investments')
       input#inputs.previous.action-button(type='button' name='previous' value='Previous')
-      input#inputs.submit.action-button(type='submit' name='submit' value='Submit')
+      input#inputs.submit.action-button(type='button' name='submit' value='Submit')
