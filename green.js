@@ -120,6 +120,11 @@ app.get('/news' , (request,response) => {
 });
 
 app.get('/home' , (request,response) => {
+    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+        response.redirect('login');
+        return;
+    }
+
     response.sendFile(__dirname + '/public/homepage.html')
 
 });
@@ -133,7 +138,7 @@ app.get('/logout' , (request,response) => {
 app.post('/api/getUserExpenses', (req,res) => {
     let data = JSON.parse(JSON.stringify(req.body));
 
-    db.all(`SELECT username, date, amount, category, description FROM expenses WHERE username = "${data.username}" AND date >= "${data.from}" AND date <= "${data.to}"`, (err, rows) => {
+    db.all(`SELECT username, date, amount, category, description FROM expenses WHERE username = "${data.username}" AND date >= "${data.from}" AND date <= "${data.to}" ORDER BY date DESC`, (err, rows) => {
         if (err) {
             throw err;
         }
