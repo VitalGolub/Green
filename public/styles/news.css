@@ -1,12 +1,13 @@
 
 body {
-    background-color: #82d305;
+    background-color: white;
     font-family: 'Ubuntu', sans-serif;
 
 }
 
 .set2{
     margin-top: 2rem;
+    margin-bottom: 3rem;
 
 }
 
@@ -27,8 +28,8 @@ hr {
 }
 
 .jumbotron{
-    background-color: #DCFFFD;
-    border-bottom: 3px solid #93827F;
+    background-color: #e9ecef;
+    /* border-bottom: 3px solid #93827F; */
 
 }
 .exchange{
@@ -45,9 +46,9 @@ hr {
     margin-right: auto;
   width: 4rem;
   height: auto;
-  border: 3px solid #0E26B1;
+  /* border: 3px solid #0E26B1; */
 
-  background-color: #87ceeb;
+  background-color: #e9ecef;
 
 
 
@@ -66,13 +67,9 @@ hr {
 }
 
 .card:hover{
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 11px 35px 2px rgba(0, 100, 0, 0.5);
 
-    border: 3px solid #001f3f;
-
-
-
-
+    /* border: 3px solid #001f3f; */
 }
 
 .card img{
@@ -96,9 +93,9 @@ hr {
 
 .btn{
     border-radius: 0.5rem;
-    border: 3px solid #dcfffd;
+    /* border: 3px solid #dcfffd; */
     width:100%;
-    background-color: #DCFFFD;
+    background-color: #6c757d;
 
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -113,9 +110,9 @@ hr {
 }
 
 .btn:hover{
-    background-color: #82d305;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.5);
-    border: 3px solid #DCFFFD;
+    /* background-color: #6c757d; */
+    box-shadow: 0px 11px 35px 2px rgba(0, 100, 0, 0.5);
+    /* border: 3px solid #DCFFFD; */
 
 }
 
