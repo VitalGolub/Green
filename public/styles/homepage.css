@@ -6,17 +6,17 @@ body {
 
 .jumbotron{
     background-color: #e9ecef;
-    /* border-bottom: 3px solid #93827F; */
+    padding:1rem;
 }
 
 .container{
     /* border: 3px solid #001f3f; */
-    /* padding-top: 1rem; */
+    padding-top: 2rem;
     border-radius: 1rem;
     /* margin-top: 5%; */
     background-color: #e9ecef;
     color:black;
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
     text-align: center;
 
 }
@@ -27,7 +27,7 @@ body {
 }
 
 button{
-    margin: 1rem;
+    margin: 2rem;
 
     -webkit-transition: all 3s ease;
     -moz-transition: all 3s ease;
@@ -130,7 +130,10 @@ button:hover{
 
 
 #buttonCarousel{
-    vertical-align: bottom;
+    /* padding-top: 0rem;
+    padding-left: 2rem;
+    padding-right: 2rem; */
+    padding-bottom: 2rem;
 }
 
 .carousel-inner{
@@ -138,5 +141,24 @@ button:hover{
 }
 
 .carousel-indicators{
-    vertical-align: top;
+    vertical-align: bottom;
+    margin-top: 1rem;
+}
+
+
+
+.carousel-control-next-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='green' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-prev-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='green' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+li.active{
+  background-color: #28a745;
+}
+
+.carousel-indicators li{
+  background-color: rgba(0, 100, 0, 1);
 }
