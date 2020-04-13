@@ -1,9 +1,15 @@
+//will be used to shuffle throught sets
+var current_fs, next_fs, previous_fs; 
 
+//variables for animation
+var left, right, opacity, scale, animating;
 
 window.onload = function() {
 
+
 $('.step2').hide();						//Hides the other two windows, only showing step1 initially
 $('.step3').hide();
+
 
 $('.submit').click(function() {
 	let socket = io();
@@ -14,49 +20,23 @@ $('.submit').click(function() {
 		});
 });
 
-//will be used to shuffle throught sets
-var current_fs, next_fs, previous_fs; 
+$(".step1").children().keypress(function(event){
+	if(event.keyCode === 13){
+		event.preventDefault()				//Prevents the page from loading the default enter button command
+		goToNext(this);
+	}
+});
 
-//variables for animation
-var left, right, opacity, scale, animating;
+
+$(".step2").children().keypress(function(event){
+	if(event.keyCode === 13){
+		event.preventDefault()				//Prevents the page from loading the default enter button command
+		goToNext(this);
+	}
+});
 
 $(".next").click(function(){
-	if(animating) return false;
-	animating = true;
-	
-	current_fs = $(this).parent();
-	next_fs = $(this).parent().next();
-	
-	
-	
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//will scale the current field set down
-			scale = 1 - (1 - now) * 0.2;
-			
-			//will bring in next fieldset
-			right = (now * 60)+"%";
-			current_fs.css({
-        		'transform': 'scale('+scale+')'
-			 });
-			next_fs.css({'right': right, 'opacity': 100});
-		}, 
-		duration: 900, 
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-			
-			//show the next fieldset
-			next_fs.show();
-		}, 
-		//using the easing plugin for jquery UI
-		//There are differnt types of easing 
-		//I use easeInOutElastic as a place holder
-		easing: 'easeInOutElastic'
-	});
-	 
-	//theStep2[0].style.display = 'inline';
+	goToNext(this);
 });
 
 $(".previous").click(function(){
@@ -95,4 +75,41 @@ $(".previous").click(function(){
 	});
 });
 
+}
+
+function goToNext(currentForm){
+	if(animating) return false;
+	animating = true;
+	
+	current_fs = $(currentForm).parent();
+	next_fs = $(currentForm).parent().next();
+	
+	
+	
+	//hide the current fieldset with style
+	current_fs.animate({opacity: 0}, {
+		step: function(now, mx) {
+			//will scale the current field set down
+			scale = 1 - (1 - now) * 0.2;
+			
+			//will bring in next fieldset
+			right = (now * 60)+"%";
+			current_fs.css({
+        		'transform': 'scale('+scale+')'
+			 });
+			next_fs.css({'right': right, 'opacity': 100});
+		}, 
+		duration: 900, 
+		complete: function(){
+			current_fs.hide();
+			animating = false;
+			
+			//show the next fieldset
+			next_fs.show();
+		}, 
+		//using the easing plugin for jquery UI
+		//There are differnt types of easing 
+		//I use easeInOutElastic as a place holder
+		easing: 'easeInOutElastic'
+	});
 }
