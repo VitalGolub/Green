@@ -297,6 +297,17 @@ app.get('/api/getSessionUser', function(req, res) {
     }
   });
 
+app.post('/api/getUserBudgets', function(req, res) {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    db.all(`SELECT * FROM budgets WHERE username = "${data.username}"`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
 
 app.get('/test', (request,response) => {
     response.sendFile(__dirname + '/public/test.html');
