@@ -99,7 +99,7 @@ app.get('/' , (request,response) => {
 
 //when login is endpoint
 app.get('/login' , (request,response) => {
-    if (request.session && request.session.user && request.session.user != '') { // Check if session exists
+    if(isActiveSession(request)){
         response.redirect('home');
         return;
     }
@@ -128,7 +128,6 @@ app.post('/processLogin', (request, response) => {
 });
 
 app.post('/processSignup', (request, response) => {
-    console.log(request.body);
 
     var username = request.body.username;
 
@@ -205,20 +204,10 @@ app.post('/processSignup', (request, response) => {
 app.get('/signup' , (request,response) => {
     //response.sendFile(__dirname + '/public/login.html')
 	response.render('signup');
-
 });
 
-app.get('/aboutUs' , (request,response) => {
-    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
-        response.redirect('login');
-        return;
-    }
-
-	response.sendFile(__dirname + '/public/aboutUs.html')
-})
-
 app.get('/transactions' , (request,response) => {
-    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+    if(!isActiveSession(request)){
         response.redirect('login');
         return;
     }
@@ -227,7 +216,7 @@ app.get('/transactions' , (request,response) => {
 });
 
 app.get('/goals' , (request,response) => {
-    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+    if(!isActiveSession(request)){
         response.redirect('login');
         return;
     }
@@ -236,7 +225,7 @@ app.get('/goals' , (request,response) => {
 });
 
 app.get('/news' , (request,response) => {
-    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+    if(!isActiveSession(request)){
         response.redirect('login');
         return;
     }
@@ -246,7 +235,8 @@ app.get('/news' , (request,response) => {
 });
 
 app.get('/aboutUs' , (request,response) => {
-    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+
+    if(!isActiveSession(request)){
         response.redirect('login');
         return;
     }
@@ -255,7 +245,7 @@ app.get('/aboutUs' , (request,response) => {
 });
 
 app.get('/home' , (request,response) => {
-    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+    if(!isActiveSession(request)){
         response.redirect('login');
         return;
     }
@@ -428,3 +418,11 @@ soio.on('connection', function(socket) {
 		soio.emit('admin notification', data);
 	});
 })
+
+function isActiveSession(request) {
+    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+        return false;
+    }
+
+    return true;
+}

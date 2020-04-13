@@ -23,11 +23,11 @@ table {
 }
 
 tr:first-child{
-  background-color: #82d305;
+  background-color: #28a745;
 }
 
 tr:first-child:hover{
-  background-color: #82d305;
+  background-color: #28a745;
 }
 
 tr:hover{
