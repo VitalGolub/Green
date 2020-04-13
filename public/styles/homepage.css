@@ -83,22 +83,31 @@ button:hover{
 
 
 
+
 #theModal{
-	display: block;
-	visibility: hidden;
-	z-index: 1;			/*Puts it above other content*/
-	overflow: auto;		/*Allows scrolling*/
-	/*background-color: #f542f5;*/
-
-
-	width: 50%;
+	display: block;	
+	/*opacity: 0.0;*/	
+	visibility: hidden;								/*By default, modal is hidden*/
+	z-index: 1;										/*Puts it above other content*/
+	overflow: auto;									/*Allows scrolling*/
+	box-shadow: -1px -1px 25px #82D305;				/*Adds a shade/popup shadow to the log*/
+	/*border-style: solid;*/
+	border-radius: 10px;							/*Makes the modal have slightly rounded edges*/
+	width: 50%;										/*Sets the dimensions of the modal*/
 	height: 80%;
-	margin-top: 4.1rem;
-	margin-left: 25%;
-	background-color: rgba(0,0,0,0.4);		/*Makes the log semi transparent*/
+	margin-top: 4.2rem;								/*Makes the modal appear just under the navbar*/
+	margin-left: 25%;								/*Centers the modal*/
+	background-color: rgba(255,255,255,0.8);		/*Makes the log semi transparent*/
 
 
 }
+
+.close{
+	font-size: 35px;
+	padding-right: 0.5rem;
+	padding-top: 0.2rem;
+}
+
 
 /* Modal Content */
 #mContent {
@@ -112,21 +121,18 @@ button:hover{
 }
 
 #mHeader {
-	/*width: 30rem;
-	bottom: 4rem;
-	height: 4rem;*/
-	/*padding-top: 4rem;*/
-	/*
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;*/
+	text-align: center;
+	border: 2px;
+	border-style: none none solid none;
+	border-color: rgba(0,0,0,0.5);
 }
 
 #mBody {
-	background-color: white;
-	width: 40%;
-	margin-left: 25%;
-}/*{padding: 2px 16px;}*/
+	text-align: center;
+	border-style: none none solid none;
+	border-color: rgba(0,0,0,0.5);
+}
+
 
 
 #buttonCarousel{
