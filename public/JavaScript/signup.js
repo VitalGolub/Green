@@ -7,9 +7,9 @@ $('.step3').hide();
 
 $('.submit').click(function() {
 	let socket = io();
+	var theUserName = document.getElementsByName('username');
 	socket.emit('Send', {
-			//data.username: TODO,
-			username: "User ",
+			username: theUserName[0].value + " ",
 			message: "has registered",
 		});
 });
