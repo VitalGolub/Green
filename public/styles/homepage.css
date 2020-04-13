@@ -127,3 +127,16 @@ button:hover{
 	width: 40%;
 	margin-left: 25%;
 }/*{padding: 2px 16px;}*/
+
+
+#buttonCarousel{
+    vertical-align: bottom;
+}
+
+.carousel-inner{
+    text-align: center;
+}
+
+.carousel-indicators{
+    vertical-align: top;
+}

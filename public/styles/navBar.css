@@ -18,10 +18,10 @@ i {
   font-size: 150%;
 }
 .navbar-logo:hover{
-  color: #dcfffd;
+  color: #82D305;
 }
 .navbar-mainbg{
-	background-color: #82D305;
+	background-color: #28a745;
 	padding: 0px;
 }
 #navbarSupportedContent{
@@ -50,7 +50,7 @@ i {
     position: relative;
 }
 #navbarSupportedContent>ul>li.active>a{
-	color: #82D305;
+	color: #28a745;
 	background-color: transparent;
 	transition: all 0.7s;
 }
@@ -104,7 +104,7 @@ i {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #82D305;
+    background-color: #28a745;
 }
 .hori-selector .right:before{
 	bottom: 0;
