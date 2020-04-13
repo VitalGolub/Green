@@ -4,6 +4,7 @@ let bodyParser = require('body-parser');
 let session = require('express-session');
 let uuid = require('uuid/v1');
 let sqlite3 = require('sqlite3').verbose();
+let bcrypt = require('bcrypt-nodejs');
 
 //node js middleware
 app.use(express.static('public'));
@@ -50,15 +51,15 @@ db.serialize(() => {
 
     db.run(`CREATE TABLE IF NOT EXISTS budgets(
         username TEXT PRIMARY KEY,
-        entertainment REAL,
-        education REAL,
-        health REAL,
-        groceries REAL,
-        restaurants REAL,
-        utilities REAL,
-        auto REAL,
-        gifts REAL,
-        investments REAL
+        entertainment REAL DEFAULT 0,
+        education REAL DEFAULT 0,
+        health REAL DEFAULT 0,
+        groceries REAL DEFAULT 0,
+        restaurants REAL DEFAULT 0,
+        utilities REAL DEFAULT 0,
+        auto REAL DEFAULT 0,
+        gifts REAL DEFAULT 0,
+        investments REAL DEFAULT 0
     )`);
 
     db.run(`CREATE TABLE IF NOT EXISTS expenses(
@@ -70,15 +71,25 @@ db.serialize(() => {
         description TEXT
     )`);
 
-    //This has been remove as you can now create your own accounts
-    // db.run('INSERT OR IGNORE INTO users (username, firstname, lastname, email, dateOfBirth, password, phoneNumber, country, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-    //     ["test", "v", "g", "v.g@gmail.com", "2020-12-12", "hello", "647-647-6477", "Canada", "12 cool cat road"], function(error) {
-    //     if (error) {
-    //         console.error(error.message);
-    //         return;
-    //     }
-    // });
+    db.run(`CREATE TABLE IF NOT EXISTS goalProgress(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        amount REAL,
+        category TEXT
+    )`);
 
+    db.run(`CREATE TABLE IF NOT EXISTS goals(
+        username TEXT PRIMARY KEY,
+        travel REAL DEFAULT 0,
+        car REAL DEFAULT 0,
+        education REAL DEFAULT 0,
+        home REAL DEFAULT 0,
+        homeImprovement REAL DEFAULT 0,
+        retirement REAL DEFAULT 0,
+        creditcard REAL DEFAULT 0,
+        loans REAL DEFAULT 0,
+        emergency REAL DEFAULT 0
+    )`);
 });
 
 //when no endpoint is entered the screen will default to the login page
@@ -175,6 +186,16 @@ app.post('/processSignup', (request, response) => {
                 }
             });
 
+            db.run('INSERT OR IGNORE INTO goals (username) VALUES (?)',
+                [username], function(error) {
+
+                if (error) {
+                    console.error(error.message);
+                    return;
+                }
+
+             });
+
             response.redirect('login');
             console.log(`${username} successfully registered`);
         }
@@ -186,6 +207,15 @@ app.get('/signup' , (request,response) => {
 	response.render('signup');
 
 });
+
+app.get('/aboutUs' , (request,response) => {
+    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+        response.redirect('login');
+        return;
+    }
+
+	response.sendFile(__dirname + '/public/aboutUs.html')
+})
 
 app.get('/transactions' , (request,response) => {
     if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
@@ -306,6 +336,73 @@ app.get('/api/getSessionUser', function(req, res) {
     }
   });
 
+app.post('/api/getUserBudgets', function(req, res) {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    db.all(`SELECT * FROM budgets WHERE username = "${data.username}"`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
+
+app.post('/api/setGoal', function(req, res) {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    let user = data.username;
+    let category = data.category;
+    let amount = data.amount;
+
+    db.run(`UPDATE goals SET ${category}=? WHERE username=?`,[amount, user], function(error) {
+        if (error) {
+            console.error(error.message);
+            return;
+        }
+    });
+});
+
+app.post('/api/addGoalProgress', function(req, res) {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    let user = data.username;
+    let category = data.category;
+    let amount = data.amount;
+
+    db.run('INSERT INTO goalProgress (username, amount, category) VALUES (?, ?, ?)',
+                    [user, category, amount], function(error) {
+        if (error) {
+            console.error(error.message);
+            return;
+        }
+    });
+});
+
+
+app.get('/api/getUserGoals', function(req, res) {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    db.all(`SELECT * FROM goals WHERE username = "${data.username}"`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
+
+app.post('/api/getGoalProgress', (req,res) => {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    db.all(`SELECT * FROM goals WHERE username = "${data.username}"`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
 
 app.get('/test', (request,response) => {
     response.sendFile(__dirname + '/public/test.html');

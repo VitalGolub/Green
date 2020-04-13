@@ -13,17 +13,9 @@ hgroup
   i.fa.fa-money(style="font-size:48px; margin-top:10px;")
   form.form1(action="/processLogin", method="post")
 
-    //-input user
-    label(for="username") Username
-    input(type="text" name="username" id="username" placeholder="Username" required autofocus)
+    input.username(type="text" name="username" id="username" placeholder="Username" required autofocus)
+    input.password(type="password" name="password" id="password" placeholder="Password" required)
 
-    //-input password
-    label(for="password") Password
-    input(type="password" name="password" id="password" placeholder="Password" required)
-
-
-    //- input.username(type='text' align='left' placeholder='Username' )
-    //- input.password(type='password' align='left' placeholder='Password')
     p.create(align='center')
         button(name="SignIn") Sign in
     p.create(align='center')
