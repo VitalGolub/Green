@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>About Us</title>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <script>
+      $(function(){
+        $("#nav-placeholder").load("navBar.html",function(){
+          var liArray = $("li").toArray();
+          $('#navbarSupportedContent ul li').removeClass("active");
+          $(liArray[4]).addClass('active');
+        });
+      });
+    </script>
+  </body>
+</html>

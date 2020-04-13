@@ -215,6 +215,15 @@ app.get('/news' , (request,response) => {
 
 });
 
+app.get('/aboutUs' , (request,response) => {
+    if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
+        response.redirect('login');
+        return;
+    }
+
+	response.sendFile(__dirname + '/public/aboutUs.html')
+});
+
 app.get('/home' , (request,response) => {
     if (!(request.session && request.session.user && request.session.user != '')) { // Check if session exists
         response.redirect('login');
@@ -316,10 +325,9 @@ soio.on('connection', function(socket) {
 	socket.on('Leave', function(){
 		console.log('User has left.');
 	});
-	
+
 	socket.on('Send', function(data){
 		console.log(data.username + ": " + data.message);
 		soio.emit('admin notification', data);
 	});
 })
-
