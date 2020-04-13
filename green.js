@@ -70,6 +70,19 @@ db.serialize(() => {
         description TEXT
     )`);
 
+    db.run(`CREATE TABLE IF NOT EXISTS goalProgress(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        amount REAL,
+        category TEXT
+    )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS goals(
+        username TEXT PRIMARY KEY,
+        category TEXT,
+        amount REAL
+    )`);
+
     //This has been remove as you can now create your own accounts
     // db.run('INSERT OR IGNORE INTO users (username, firstname, lastname, email, dateOfBirth, password, phoneNumber, country, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
     //     ["test", "v", "g", "v.g@gmail.com", "2020-12-12", "hello", "647-647-6477", "Canada", "12 cool cat road"], function(error) {
@@ -310,6 +323,30 @@ app.post('/api/getUserBudgets', function(req, res) {
     let data = JSON.parse(JSON.stringify(req.body));
 
     db.all(`SELECT * FROM budgets WHERE username = "${data.username}"`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
+
+app.post('/api/getUserGoals', function(req, res) {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    db.all(`SELECT * FROM goals WHERE username = "${data.username}"`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(rows);
+    });
+});
+
+app.post('/api/getGoalProgress', (req,res) => {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    db.all(`SELECT * FROM goals WHERE username = "${data.username}"`, (err, rows) => {
         if (err) {
             throw err;
         }
