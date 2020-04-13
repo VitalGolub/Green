@@ -39,14 +39,47 @@
           <h4 name="date">Date</h4>
         </div>
 
-        <div class="list-group">
-          <button type="button" class="btn" name="button1">View Transactions for this Week</button>
-          <button type="button" class="btn" name="button2">View Transactions for this Month</button>
-          <button type="button" class="btn" name="button3">View Spending History over the Year</button>
-          <button type="button" class="btn" name="button4">View Specified Month</button>
-          <!-- <button type="button" class="btn"name="button5" >Add Transactions</button> -->
-          <!-- Button for admin viewing creation logs obtained via sockets -->
-          <button type="button" class="btn" name="btnAdminLog">View Registration Log</button>
+
+        <div id="buttonCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <button type="button" class="btn" name="button1">View Transactions for this Week</button>
+            </div>
+
+            <div class="carousel-item">
+              <button type="button" class="btn" name="button2">View Transactions for this Month</button>
+            </div>
+
+            <div class="carousel-item">
+              <button type="button" class="btn" name="button3">View Spending History over the Year</button>
+            </div>
+
+            <div class="carousel-item">
+              <button type="button" class="btn" name="button4">View Specified Month</button>
+            </div>
+
+            <div class="carousel-item">
+              <button type="button" class="btn" name="btnAdminLog">View Registration Log</button>
+            </div>
+
+          </div>
+
+          <a class="carousel-control-prev" href="#buttonCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+
+          <a class="carousel-control-next" href="#buttonCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
 
 
@@ -73,5 +106,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="styles/homepage.css">
+    <script type='text/javascript' src='JavaScript/homepage.js'></script>
   </body>
 </html>
