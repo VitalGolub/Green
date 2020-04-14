@@ -14,7 +14,9 @@
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <script type='text/javascript' src='JavaScript/homepage.js'></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/homepage.css">
     <title>HomePage</title>
   </head>
@@ -42,32 +44,23 @@
 
         <div id="buttonCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li id="ind" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li id="ind" data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li id="ind" data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <!-- <li data-target="#carouselExampleIndicators" data-slide-to="4"></li> -->
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <button type="button" class="btn" name="button1">View Transactions for this Week</button>
+              <h1>Weekly Transactions</h1>
             </div>
 
             <div class="carousel-item">
-              <button type="button" class="btn" name="button2">View Transactions for this Month</button>
+              <h1>Monthly Transactions</h1>
             </div>
 
             <div class="carousel-item">
-              <button type="button" class="btn" name="button3">View Spending History over the Year</button>
+              <h1>Yearly Transactions</h1>
             </div>
-
-            <div class="carousel-item">
-              <button type="button" class="btn" name="button4">View Specified Month</button>
-            </div>
-
-            <!-- <div class="carousel-item">
-              <button type="button" class="btn" name="btnAdminLog">View Registration Log</button>
-            </div> -->
 
           </div>
 
@@ -100,9 +93,17 @@
       <!-- </form> -->
     </div>
 
+
+    <div id="display">
+      <div id="input">
+          <input type="date" id="d3date" name="d3date" placeholder="YYYY/MM/DD"/>
+      </div>
+      <div id="d3area"></div>
+    </div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="styles/homepage.css">
