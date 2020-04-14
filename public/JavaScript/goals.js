@@ -1,8 +1,13 @@
 var column_num;
 var row_num;
 var button_num;
+let user = "Invalid-User";
 
 $(document).ready(function(){
+  $.get("/api/getSessionUser", function(data) {
+      user = data;
+  });
+
     $("#buttonSet BTN").click(function() {
         column_num = parseInt( $(this).parent().parent().parent().parent().index()  ) + 1;
         row_num = parseInt( $(this).parent().parent().parent().parent().parent().parent().parent().index() )+1-10;
@@ -13,13 +18,7 @@ $(document).ready(function(){
 });
 
 
-
 function myFunc(){
-
-  let user = "Invalid-User";
-  $.get("/api/getSessionUser", function(data) {
-      user = data;
-  });
   let insertJson;
   let category;
   switch(button_num){
@@ -32,6 +31,9 @@ function myFunc(){
           amount:goal,
           category:category
       };
+
+      console.log(insertJson);
+
       if(user != "Invalid-User")
           $.post("/api/setGoal", insertJson);
       document.getElementById('totalGoal').value = '';
@@ -48,6 +50,9 @@ function myFunc(){
           amount:amount,
           category:category
       };
+
+      console.log(insertJson);
+
       if(user != "Invalid-User")
           $.post("/api/addGoalProgress", insertJson);
       document.getElementById('amount').value = '';
