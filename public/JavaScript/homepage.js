@@ -42,7 +42,7 @@ window.onload = function() {
             async: false,
             success: function (data) {
 
-                userName += "Welcome " + data + "!";
+                userName += "Welcome, " + data + "!";
 				justTheUserName = data;
 
              }
