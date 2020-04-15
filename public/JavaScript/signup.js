@@ -12,12 +12,17 @@ $('.step3').hide();
 
 
 $('.submit').click(function() {
-	let socket = io();
+	let socket = io({
+		transports: ['websocket', 'server-events', 'htmlfile', 'xhr-multipart', 'xhr-polling']
+
+	});
 	var theUserName = document.getElementsByName('username');
 	socket.emit('Send', {
 			username: theUserName[0].value + " ",
 			message: "has registered",
 		});
+	alert("Welcome to Green "+ theUserName[0].value + "!");
+		
 });
 
 $(".step1").children().keypress(function(event){
