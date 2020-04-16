@@ -88,7 +88,7 @@ function generateTable(container, user, from, to){
             dateCell.innerHTML = this.date;
 
             let amountCell = document.createElement('td');
-            amountCell.innerHTML = "$" + this.amount;
+            amountCell.innerHTML = "$" + parseFloat(this.amount).toFixed(2);
 
             let categoryCell = document.createElement('td');
             categoryCell.innerHTML = this.category;
@@ -119,7 +119,7 @@ function generateBudgetsTable(container, user) {
         let headerRow = document.createElement('tr');
 
         let cell = document.createElement('th');
-        cell.innerHTML = "Budgets";
+        cell.innerHTML = "Budgets (Click rows to modify your budgets)";
         cell.colSpan = "2"; 
         cell.style.textAlign = "center";
         headerRow.appendChild(cell);
@@ -178,7 +178,7 @@ function generateBudgetsTable(container, user) {
             table.appendChild(row);
         });
 
-        table.className += " table";
+        // table.className += " table";
         container.appendChild(table);
     });
 }
