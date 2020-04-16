@@ -167,27 +167,16 @@ li.active{
 
 #chart{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    width: 960px;
+    width: 940px;
     height: 500px;
-    /* position: relative; */
-    text-align: center;
-}
-
-#barchart{
-    width: 960px;
-    height: 500px;
-    position: relative;
-    text-align: center;
     float: right;
-    margin-top: 28rem;
+    margin-right: 15rem;
+    margin-top: 3rem;
 }
 
-svg{
+#chart svg{
     width: 150%;
     height: 150%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 path.slice{
@@ -203,8 +192,23 @@ polyline{
 
 #input{
     padding: 2rem;
+    float: left;
 }
 
-#input{
-    float: left;
+
+#progressBars{
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    margin-left: 2.5rem;
+}
+
+
+
+#singleProgressBar{
+    margin-bottom: 2rem;
+    width: 20%;
+}
+
+#progessLabel , #budgetEnt,#budgetEdu,#budgetPer,#budgetGro,#budgetRes,#budgetUti,#budgetAuto,#budgetGift,#budgetInv{
+    display: inline-block;
 }

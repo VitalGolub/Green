@@ -119,22 +119,44 @@ function checkType(x)
 
 function displayD3(x){
   var returnDates;
+  var expenseData;
+  var budgetData;
   switch(x){
     case 0:
       returnDates = week();
-      change(getData(returnDates[0],returnDates[1]));
+      expenseData = getData(returnDates[0],returnDates[1])
+      //Change pie chart
+      change(expenseData);
+      //Change progress Bar
+      budgetData = getBudgetData();
+      //Change progress Bar
+      console.log("BUDGET DATA SENING: ",budgetData);
+      console.log("Expense DATA SENING: ",expenseData);
+      updateProgressBar(budgetData,expenseData,0.25);
       break;
 
     case 1:
       returnDates = month();
-      change(getData(returnDates[0],returnDates[1]));
+      expenseData = getData(returnDates[0],returnDates[1])
+      //Change pie chart
+      change(expenseData);
+      //Change progress Bar
+      budgetData = getBudgetData();
+      updateProgressBar(budgetData,expenseData,1);
+
       break;
 
     case 2:
       let date = new Date(document.getElementById('d3date').value);
       let start = date.getFullYear() + "-01-01";
       let end = date.getFullYear() + "-12-31";
-      change(getData(start,end));
+      expenseData = getData(start,end);
+      //Change pie chart
+      change(expenseData);
+      //Change progress Bar
+      budgetData = getBudgetData();
+      updateProgressBar(budgetData,expenseData,12);
+
       break;
 
     default:
@@ -200,6 +222,97 @@ function getData(from, to){
     });
   });
   return returnMap;
+}
+
+function getBudgetData()
+{
+  jQuery.ajaxSetup({async:false});
+  let returnMap = [
+    {auto:0,
+    education:0,
+    entertainment:0,
+    gifts:0,
+    groceries:0,
+    health:0,
+    investments:0,
+    restaurants:0,
+    utilities:0}
+  ];
+
+  var jsonQuery = {username:userName};
+  $.post("/api/getUserBudgets" ,jsonQuery,function(data) {
+    $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
+
+      returnMap.auto = this.auto;
+      returnMap.education = this.education;
+      returnMap.entertainment = this.entertainment;
+      returnMap.gifts = this.gifts;
+      returnMap.groceries = this.groceries;
+      returnMap.health = this.health;
+      returnMap.investments = this.investments;
+      returnMap.restaurants = this.restaurants;
+      returnMap.utilities = this.utilities;
+
+    });
+  });
+  console.log("INT HE FUNCTION: ",returnMap)
+  return returnMap;
+}
+
+function updateProgressBar(budgetData,expenseData,multiplier)
+{
+  jQuery.ajaxSetup({async:false});
+  console.log("BUDGET DATA BEFORE MULT: ",budgetData);
+
+  budgetData.auto = budgetData.auto * multiplier;
+  budgetData.education = budgetData.education * multiplier;
+  budgetData.entertainment = budgetData.education * multiplier;
+  budgetData.gifts = budgetData.education * multiplier;
+  budgetData.groceries = budgetData.education * multiplier;
+  budgetData.health = budgetData.education * multiplier;
+  budgetData.investments = budgetData.education * multiplier;
+  budgetData.restaurants = budgetData.education * multiplier;
+  budgetData.utilities = budgetData.education * multiplier;
+
+  console.log("BUDGET DATA AFTER MULT: ",budgetData);
+
+  $("#budgetEnt").empty().append("$",budgetData.entertainment);
+  $("#budgetEdu").empty().append("$",budgetData.education);
+  $("#budgetPer").empty().append("$",budgetData.health);
+  $("#budgetGro").empty().append("$",budgetData.groceries);
+  $("#budgetRes").empty().append("$",budgetData.restaurants);
+  $("#budgetUti").empty().append("$",budgetData.utilities);
+  $("#budgetAuto").empty().append("$",budgetData.auto);
+  $("#budgetGift").empty().append("$",budgetData.gifts);
+  $("#budgetInv").empty().append("$",budgetData.investments);
+
+  console.log("EXPENSE DATA: ",expenseData);
+
+  var proBarArray = $(".progress-bar").toArray();
+  console.log("EX: ",expenseData[0]);
+  console.log("BUD: ",budgetData.entertainment);
+  $(proBarArray[0]).css('width', ((expenseData[0].value/budgetData.entertainment) * 100).toFixed(2) +'%');
+  $(proBarArray[1]).css('width', (expenseData[1].value/budgetData.education) * 100 +'%');
+  $(proBarArray[2]).css('width', (expenseData[2].value/budgetData.health) * 100 +'%');
+  $(proBarArray[3]).css('width', (expenseData[3].value/budgetData.groceries) * 100 +'%');
+  $(proBarArray[4]).css('width', (expenseData[4].value/budgetData.restaurants) * 100 +'%');
+  $(proBarArray[5]).css('width', (expenseData[5].value/budgetData.utilities) * 100 +'%');
+  $(proBarArray[6]).css('width', (expenseData[6].value/budgetData.auto) * 100 +'%');
+  $(proBarArray[7]).css('width', (expenseData[7].value/budgetData.gifts) * 100 +'%');
+  $(proBarArray[8]).css('width', (expenseData[8].value/budgetData.investments) * 100 +'%');
+
+  var innerText = $(".s").toArray();
+  console.log("probar", expenseData[5].value)
+  $(innerText[0]).empty().append("$",expenseData[0].value);
+  $(innerText[1]).empty().append("$",expenseData[1].value);
+  $(innerText[2]).empty().append("$",expenseData[2].value);
+  $(innerText[3]).empty().append("$",expenseData[3].value);
+  $(innerText[4]).empty().append("$",expenseData[4].value);
+  $(innerText[5]).empty().append("$",expenseData[5].value);
+  $(innerText[6]).empty().append("$",expenseData[6].value);
+  $(innerText[7]).empty().append("$",expenseData[7].value);
+  $(innerText[8]).empty().append("$",expenseData[8].value);
+
 }
 
 
@@ -289,7 +402,6 @@ function change(data)
 		.append("text")
 		.attr("dy", ".35em")
 		.text(function(d) {
-        console.log("LABEL VALUE: ",d.data.label);
         if(d.value != 0)
         {
           return d.data.label;
@@ -353,133 +465,3 @@ function change(data)
 	polyline.exit()
     .remove();
 };
-
-
-// BARCHART STUFF-----------------------------------------------------------------------------------------------------
-function makeBarChart(data)
-{
-  var data =  [
-    {"State": "CA", "Under 5 Years": 2704659, "5 to 13 Years": 4499890, "14 to 17 Years": 2159981, "18 to 24 Years": 3853788, "25 to 44 Years": 10604510, "45 to 64 Years": 8819342, "65 Years and Over": 4114496},
-    {"State": "CA", "Under 5 Years": 2704659, "5 to 13 Years": 4499890, "14 to 17 Years": 2159981, "18 to 24 Years": 3853788, "25 to 44 Years": 10604510, "45 to 64 Years": 8819342, "65 Years and Over": 4114496},
-    {"State": "CA", "Under 5 Years": 2704659, "5 to 13 Years": 4499890, "14 to 17 Years": 2159981, "18 to 24 Years": 3853788, "25 to 44 Years": 10604510, "45 to 64 Years": 8819342, "65 Years and Over": 4114496},
-    {"State": "CA", "Under 5 Years": 2704659, "5 to 13 Years": 4499890, "14 to 17 Years": 2159981, "18 to 24 Years": 3853788, "25 to 44 Years": 10604510, "45 to 64 Years": 8819342, "65 Years and Over": 4114496},
-    {"State": "CA", "Under 5 Years": 2704659, "5 to 13 Years": 4499890, "14 to 17 Years": 2159981, "18 to 24 Years": 3853788, "25 to 44 Years": 10604510, "45 to 64 Years": 8819342, "65 Years and Over": 4114496},
-    {"State": "CA", "Under 5 Years": 2704659, "5 to 13 Years": 4499890, "14 to 17 Years": 2159981, "18 to 24 Years": 3853788, "25 to 44 Years": 10604510, "45 to 64 Years": 8819342, "65 Years and Over": 4114496},
-  
-    columns: ["State", "Under 5 Years", "5 to 13 Years", "14 to 17 Years", "18 to 24 Years", "25 to 44 Years", "45 to 64 Years", "65 Years and Over"],
-  
-    y: "Population"
-];
-
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
-  width = 960 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
-  
-  var x0 = d3.scale.ordinal()
-  .rangeRoundBands([0, width], .1);
-  
-  var x1 = d3.scale.ordinal();
-  
-  var y = d3.scale.linear()
-  .range([height, 0]);
-  
-  var xAxis = d3.svg.axis()
-  .scale(x0)
-  .tickSize(0)
-  .orient("bottom");
-  
-  var yAxis = d3.svg.axis()
-  .scale(y)
-  .orient("left");
-  
-  var color = d3.scale.ordinal()
-  .range(["#ca0020","#f4a582","#d5d5d5","#92c5de","#0571b0"]);
-  
-  var svg = d3.select('#barchart').empty().append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  
-  d3.json("data.json", function(error, data) 
-  {
-    
-    var categoriesNames = data.map(function(d) { return d.categorie; });
-    var rateNames = data[0].values.map(function(d) { return d.rate; });
-    
-    x0.domain(categoriesNames);
-    x1.domain(rateNames).rangeRoundBands([0, x0.rangeBand()]);
-     y.domain([0, d3.max(data, function(categorie) { return d3.max(categorie.values, function(d) { return d.value; }); })]);
-  
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-        
-        svg.append("g")
-        .attr("class", "y axis")
-        .style('opacity','0')
-        .call(yAxis)
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .style('font-weight','bold')
-        .text("Value");
-        
-        svg.select('.y').transition().duration(500).delay(1300).style('opacity','1');
-        
-        var slice = svg.selectAll(".slice")
-        .data(data)
-        .enter().append("g")
-        .attr("class", "g")
-        .attr("transform",function(d) { return "translate(" + x0(d.categorie) + ",0)"; });
-        
-        slice.selectAll("rect")
-        .data(function(d) { return d.values; })
-        .enter().append("rect")
-        .attr("width", x1.rangeBand())
-        .attr("x", function(d) { return x1(d.rate); })
-        .style("fill", function(d) { return color(d.rate) })
-        .attr("y", function(d) { return y(0); })
-        .attr("height", function(d) { return height - y(0); })
-        .on("mouseover", function(d) {
-          d3.select(this).style("fill", d3.rgb(color(d.rate)).darker(2));
-        })
-        .on("mouseout", function(d) {
-          d3.select(this).style("fill", color(d.rate));
-        });
-        
-    slice.selectAll("rect")
-    .transition()
-    .delay(function (d) {return Math.random()*1000;})
-    .duration(1000)
-    .attr("y", function(d) { return y(d.value); })
-    .attr("height", function(d) { return height - y(d.value); });
-    
-    //Legend
-    var legend = svg.selectAll(".legend")
-    .data(data[0].values.map(function(d) { return d.rate; }).reverse())
-    .enter().append("g")
-    .attr("class", "legend")
-    .attr("transform", function(d,i) { return "translate(0," + i * 20 + ")"; })
-    .style("opacity","0");
-    
-    legend.append("rect")
-    .attr("x", width - 18)
-    .attr("width", 18)
-    .attr("height", 18)
-    .style("fill", function(d) { return color(d); });
-    
-    legend.append("text")
-    .attr("x", width - 24)
-    .attr("y", 9)
-    .attr("dy", ".35em")
-    .style("text-anchor", "end")
-    .text(function(d) {return d; });
-    
-    legend.transition().duration(500).delay(function(d,i){ return 1300 + 100 * i; }).style("opacity","1");
-  
-  });
-}

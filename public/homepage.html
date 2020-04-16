@@ -69,12 +69,12 @@
 
           <a class="carousel-control-prev" href="#buttonCarousel" role="button" data-slide="prev" onclick = "checkType((-1))">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span >Previous</span>
           </a>
 
           <a class="carousel-control-next" href="#buttonCarousel" role="button" data-slide="next" onclick = "checkType(1)">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span >Next</span>
           </a>
         </div>
 
@@ -84,7 +84,7 @@
   		    <!-- Modal Inner Contents -->
   		    <div id = "mContent">
   			       <div id="mHeader">
-  				           <span class = "close">&times;</span>	<!--Creates a close button-->
+  				           <span class = "close">&times;</span>	<!--Creates a close button obtained from w3 schools-->
   				           <h1>Registration Log</h1>
   			       </div>
 
@@ -103,12 +103,64 @@
       </div>
       <button type="button" class="btn btn-warning" onClick = "checkType(0)">Update</button>
       <div id="chart">
-        <!-- <svg id = "chart" width="300" height="200"> </svg> -->
       </div>
 
-      <div id="barchart">
-        <!-- <svg id = "chart" width="300" height="200"> </svg> -->
-      </div>
+      <div id = "progressBars">
+      </label id = "progessLabel">Entertainment: </label><div id = "budgetEnt">$</div>
+        <div id="singleProgressBar" class = "progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:20%">
+            <div id = "barValue" class = "s">$500.02</div>
+          </div>
+        </div>
+      </label id = "progessLabel">Education: </label><div id = "budgetEdu">$</div>
+        <div id="singleProgressBar" class = "progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+            <div id = "barValue" class = "s">$500.02</div>
+          </div>
+        </div>
+      </label id = "progessLabel">Personal/Health Care: </label><div id = "budgetPer">$</div>
+        <div id="singleProgressBar" class = "progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+            <div id = "barValue" class = "s">$500.02</div>
+          </div>
+        </div>
+      </label id = "progessLabel">Groceries: </label><div id = "budgetGro">$</div>
+        <div id="singleProgressBar" class = "progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+            <div id = "barValue" class = "s">$500.02</div>
+          </div>
+        </div>
+      </label id = "progessLabel">Restaurants: </label><div id = "budgetRes">$</div>
+        <div id="singleProgressBar" class = "progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+            <div id = "barValue" class = "s">$500.02</div>
+          </div>
+        </div>
+      </label id = "progessLabel">Utilities & Bills: </label><div id = "budgetUti">$</div>
+        <div id="singleProgressBar" class = "progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+            <div id = "barValue" class = "s">$500.02</div>
+          </div>
+        </div>
+      </label id = "progessLabel">Auto & Transportation: </label><div id = "budgetAuto">$</div>
+        <div id="singleProgressBar" class = "progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+            <div id = "barValue" class = "s">$500.02</div>
+          </div>
+        </div>
+      </label id = "progessLabel">Gifts & Donations: </label><div id = "budgetGift">$</div>
+        <div id="singleProgressBar" class = "progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+            <div id = "barValue" class = "s">$500.02</div>
+          </div>
+        </div>
+      </label id = "progessLabel">Investemts: </label><div id = "budgetInv">$</div>
+        <div id="singleProgressBar" class = "progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+            <div id = "barValue" class = "s">$500.02</div>
+          </div>
+        </div>
+    </div>
 
     </div>
 
