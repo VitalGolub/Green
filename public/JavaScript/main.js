@@ -101,6 +101,7 @@ function generateBudgetsTable(container, user) {
         let cell = document.createElement('th');
         cell.innerHTML = "Budgets";
         cell.colSpan = "2"; 
+        cell.style.textAlign = "center";
         headerRow.appendChild(cell);
 
         table.appendChild(headerRow);
@@ -114,7 +115,6 @@ function generateBudgetsTable(container, user) {
 
             let categoryCell = document.createElement('th');
             categoryCell.innerHTML = convertBudgetName(key);
-            categoryCell.style.textAlign = "center";
 
             let amountCell = document.createElement('td');
             amountCell.innerHTML = "$" + parseFloat(data).toFixed(2);;

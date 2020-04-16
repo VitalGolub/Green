@@ -166,15 +166,15 @@ app.post('/processSignup', (request, response) => {
                 }
             });
 
-            var entertainment = request.body.entertainment;
-            var education = request.body.education;
-            var health = request.body.health;
-            var groceries = request.body.groceries;
-            var restaurants = request.body.restaurants;
-            var utilities = request.body.utilities;
-            var auto = request.body.auto;
-            var gifts = request.body.gifts;
-            var investments = request.body.investments;
+            var entertainment = isNaN(request.body.entertainment) ? 0 : request.body.entertainment;
+            var education = isNaN(request.body.education) ? 0 : request.body.education;
+            var health = isNaN(request.body.health) ? 0 : request.body.health;
+            var groceries = isNaN(request.body.groceries) ? 0 : request.body.groceries;
+            var restaurants = isNaN(request.body.restaurants) ? 0 : request.body.restaurants;
+            var utilities = isNaN(request.body.utilities) ? 0 : request.body.utilities;
+            var auto = isNaN(request.body.auto) ? 0 : request.body.auto;
+            var gifts = isNaN(request.body.gifts) ? 0 : request.body.gifts;
+            var investments = isNaN(request.body.investments) ? 0 : request.body.investments;
 
             db.run('INSERT OR IGNORE INTO budgets (username, entertainment, education, health, groceries, restaurants, utilities, auto, gifts, investments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                 [username, entertainment, education, health, groceries, restaurants, utilities, auto, gifts, investments], function(error) {
