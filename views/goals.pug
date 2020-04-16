@@ -32,7 +32,7 @@ script(type='text/javascript').
             p.card-text Start saving for your next adventure!
             .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
-              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal' id='tripView') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
 
 
@@ -45,7 +45,7 @@ script(type='text/javascript').
             p.card-text Start saving for that fancy new ride you have been looking at
             .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
-              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal' id='carView') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
@@ -56,7 +56,7 @@ script(type='text/javascript').
             p.card-text Put some money towards your education
             .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
-              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal' id='schoolView') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
 .set2
   .container
@@ -70,7 +70,7 @@ script(type='text/javascript').
             p.card-text Start putting money away for your new home
             .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
-              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal' id='buyHomeView') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
@@ -81,7 +81,7 @@ script(type='text/javascript').
             p.card-text Start saving for some much needed renovations
             .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
-              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal' id='homeRenoView') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
@@ -92,7 +92,7 @@ script(type='text/javascript').
             p.card-text Start saving for your retirement
             .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
-              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal' id='retireView') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
 .set3
   .container
@@ -106,7 +106,7 @@ script(type='text/javascript').
             p.card-text Crush your credit card debt and start building your credit score
             .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
-              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal' id='creditDebtView') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
@@ -117,7 +117,7 @@ script(type='text/javascript').
             p.card-text Get those pesky loans off your head
             .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
-              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal' id='loanView') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
@@ -128,7 +128,7 @@ script(type='text/javascript').
             p.card-text Its always good to have an emergency fund!
             .buttonset(id='buttonSet')
               btn.btn.btn-warning(type='button' data-toggle='modal' data-target='#setModal') Set
-              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal') View
+              btn.btn.btn-primary(type='button' data-toggle='modal' data-target='#viewModal' id='emergencyView') View
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
 
 div.modal.fade(id='setModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
@@ -153,8 +153,8 @@ div.modal.fade(id='viewModal' tabindex='-1' role='dialog' aria-labelledby='examp
         btn.close(type='button' data-dismiss='modal' aria-label='Close')
           span(aria-hidden='true') &times
       div.modal-body
-       .progress
-        .progress-bar(role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100") 25%
+        .progress
+         .progress-bar(role="progressbar" style="width: 100%;" aria-valuenow="" aria-valuemin="0" aria-valuemax="") 
       div.modal-footer
         btn.btn.btn-secondary(type='button' data-dismiss='modal') Close
 
