@@ -259,7 +259,6 @@ app.get('/logout' , (request,response) => {
     response.redirect("login");
 });
 
-
 app.post('/api/getUserExpenses', (req,res) => {
     let data = JSON.parse(JSON.stringify(req.body));
 
