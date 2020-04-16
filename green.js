@@ -401,7 +401,7 @@ app.get('/api/getUserGoals', function(req, res) {
 app.post('/api/getGoalProgress', (req,res) => {
     let data = JSON.parse(JSON.stringify(req.body));
 
-    db.all(`SELECT * FROM goals WHERE username = "${data.username}"`, (err, rows) => {
+    db.all(`SELECT * FROM goalProgress WHERE username = "${data.username}"`, (err, rows) => {
         if (err) {
             throw err;
         }
