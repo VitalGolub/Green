@@ -10,9 +10,9 @@ window.onload = function() {
         var from = $("#from").val();
         var to = $("#to").val();
 
-        $("table").empty();
         let table=document.getElementById("table");
-        generateTable(table, user, from, to);    
+        $(table).empty();
+        generateTable(table, user, from, to);
     });
 
 
@@ -54,7 +54,7 @@ window.onload = function() {
         var today = new Date();
         var dateString = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         var dateStringPrev = (today.getFullYear()-10)+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        $("table").empty();
+        $(table).empty();
         generateTable(table, user, dateStringPrev, dateString);
     };
 }
