@@ -17,7 +17,7 @@
     
   }
 
-.image img {
+img[name='screenshot'] {
     width: 220px;
     height: auto;
     border-top-left-radius: 4px;
@@ -54,6 +54,14 @@
     width: 100%;
     height: auto;
     border-radius: 2rem;
+  }
+
+
+.card-img-top img{
+    
+    border-radius: 2rem;
+    max-width: 100px;
+    height: auto;
   }
 
   

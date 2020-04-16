@@ -21,12 +21,18 @@ $(document).ready(function(){
         row_num = parseInt( $(this).parent().parent().parent().parent().parent().parent().parent().index() )+1-10;
         button_num = parseInt( $(this).index() ) + 1;
 
-        //alert("row: "+ row_num +" col: " + column_num + " but: "+ button_num);
+      
     });
   });
 
   window.onload = function() {
     
+    /*
+    *When user hits 'view' button for anyone of the goal categories 
+    *Two functions will be called that pull information from database 
+    * The information is then show on a progress bar that pops up on the screen using a modal
+    */
+
     $("#tripView").click(function() {
       
       getGoalAmount('travel');
@@ -36,7 +42,11 @@ $(document).ready(function(){
       console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
+      if (ProgressPercentage > 0){
       $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+      } else {
+        $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+      }
     });
 
 
@@ -48,7 +58,12 @@ $(document).ready(function(){
       console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
+      if (ProgressPercentage > 0){
       $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+      } else {
+        $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+      }
+
     });
 
           $("#schoolView").click(function() {
@@ -59,7 +74,11 @@ $(document).ready(function(){
             console.log(amountSaved);
       
             var ProgressPercentage = (amountSaved / amountSet) * 100;
+            if (ProgressPercentage > 0){
             $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+            } else {
+              $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+            }
       
 
             });
@@ -72,7 +91,11 @@ $(document).ready(function(){
               console.log(amountSaved);
         
               var ProgressPercentage = (amountSaved / amountSet) * 100;
-              $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+               if (ProgressPercentage > 0){
+               $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                } else {
+                  $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                }
 
               });
 
@@ -85,7 +108,11 @@ $(document).ready(function(){
                 console.log(amountSaved);
           
                 var ProgressPercentage = (amountSaved / amountSet) * 100;
-                $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+               if (ProgressPercentage > 0){
+                 $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                 } else {
+               $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                 }
 
                 });
 
@@ -97,8 +124,12 @@ $(document).ready(function(){
                   getSavedAmount('retirement');
                   console.log(amountSaved);
             
-                  var ProgressPercentage = (amountSaved / amountSet) * 100;
-                  $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                    var ProgressPercentage = (amountSaved / amountSet) * 100;
+                    if (ProgressPercentage > 0){
+                    $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                    } else {
+                      $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                    }
 
                   });
 
@@ -112,7 +143,11 @@ $(document).ready(function(){
                     console.log(amountSaved);
               
                     var ProgressPercentage = (amountSaved / amountSet) * 100;
+                    if (ProgressPercentage > 0){
                     $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                    } else {
+                      $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                    }
 
                     });
 
@@ -126,7 +161,11 @@ $(document).ready(function(){
                       console.log(amountSaved);
                 
                       var ProgressPercentage = (amountSaved / amountSet) * 100;
-                      $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                      if (ProgressPercentage > 0){
+                        $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                        } else {
+                          $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                        }
                 
 
                       });
@@ -140,12 +179,16 @@ $(document).ready(function(){
                         console.log(amountSaved);
                   
                         var ProgressPercentage = (amountSaved / amountSet) * 100;
+                        if (ProgressPercentage > 0){
                         $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                        } else {
+                          $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                        }
 
                         });
   }
 
-
+//api call to green.js to pull goal total for selected Category
 function getGoalAmount(categorySelected) {
   jQuery.ajaxSetup({async:false});
   $.post("/api/getUserGoals", {username:user}, function(data) {
@@ -160,13 +203,13 @@ function getGoalAmount(categorySelected) {
  
 
 }
-
+//api call to green.js to get information about money saved for selected goal
 function getSavedAmount(categorySelected) {
   jQuery.ajaxSetup({async:false});
   $.post("/api/getGoalProgress", {username:user}, function(data) {
     amountSaved = 0;
     for(var i = 0; i < data.length; i++){
-       
+       //loops through all saving deposits and aggregates selected amount for selected goal category
       if (data[i].category == categorySelected){
         
         amountSaved += data[i].amount;
