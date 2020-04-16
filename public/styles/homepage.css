@@ -169,8 +169,17 @@ li.active{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 960px;
     height: 500px;
+    /* position: relative; */
+    text-align: center;
+}
+
+#barchart{
+    width: 960px;
+    height: 500px;
     position: relative;
     text-align: center;
+    float: right;
+    margin-top: 28rem;
 }
 
 svg{
