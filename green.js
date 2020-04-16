@@ -267,6 +267,7 @@ app.post('/api/getUserExpenses', (req,res) => {
             throw err;
         }
 
+        console.log(rows);
         res.send(rows);
     });
 });
