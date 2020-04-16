@@ -377,7 +377,7 @@ app.post('/api/addGoalProgress', function(req, res) {
     let amount = data.amount;
 
     db.run('INSERT INTO goalProgress (username, amount, category) VALUES (?, ?, ?)',
-                    [user, category, amount], function(error) {
+                    [user, amount, category], function(error) {
         if (error) {
             console.error(error.message);
             return;
