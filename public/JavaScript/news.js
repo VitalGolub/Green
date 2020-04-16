@@ -1,4 +1,7 @@
 
+//Some of the code for reading the RSS feed was found from stack overflow 
+// https://stackoverflow.com/questions/41661420/google-feed-api-deprecated-how-can-i-find-rss-feed-of-web-site
+
 var url = "http://feeds.feedburner.com/MyMint"; 
 var xhr = createCORSRequest("GET","https://api.rss2json.com/v1/api.json?rss_url="+url);
 
@@ -29,12 +32,12 @@ window.onload = function() {
     var cardTitles = this.document.getElementsByTagName('h5');
     var cardDescriptions = this.document.getElementsByClassName('card-text');
     var cardButtons = this.document.getElementsByClassName('btn');
-    //var cardImages = this.document.getElementsByClassName('card-img-top');
+    
 
     console.log(cardDescriptions);
     
    
-    
+    //pulls foreign exchange information from exchangeratesapi
     $.ajax({
         method: 'GET',
         url: "https://api.exchangeratesapi.io/latest?base=CAD&symbols=CAD,USD,EUR,GBP,JPY", 
@@ -64,7 +67,7 @@ xhr.onreadystatechange = function() {
         var result = JSON.parse(responseText);
         
 
-        
+        //Going through the RSS feed data and getting the information we want for the news cards
         articleData = result;
         console.log(articleData);
         for (var i = 0; i < 6; i++){
@@ -80,7 +83,7 @@ xhr.onreadystatechange = function() {
             }
             cardDescriptions[i].innerText = descriptionParser + "...";
             cardButtons[i].setAttribute('href', articleData.items[i].link);
-           // cardImages[i].src = articleData.items[i].thumbnail;
+
         }
         
         

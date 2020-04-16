@@ -26,7 +26,8 @@ $(document).ready(function(){
   });
 
   window.onload = function() {
-    
+    var amountSetLable = document.getElementById("amountLabel");
+    var amountSavedLabel = document.getElementById("budgetLabel");
     /*
     *When user hits 'view' button for anyone of the goal categories 
     *Two functions will be called that pull information from database 
@@ -44,9 +45,17 @@ $(document).ready(function(){
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       if (ProgressPercentage > 0){
       $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+
+                    amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                    amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      
       } else {
         $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                    amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
       }
+
+      
     });
 
 
@@ -60,9 +69,15 @@ $(document).ready(function(){
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       if (ProgressPercentage > 0){
       $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                     amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
       } else {
         $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                  amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                 amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
       }
+
+    
 
     });
 
@@ -76,9 +91,15 @@ $(document).ready(function(){
             var ProgressPercentage = (amountSaved / amountSet) * 100;
             if (ProgressPercentage > 0){
             $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+              amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+              amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
             } else {
               $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+              amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+              amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
             }
+
+            
       
 
             });
@@ -93,9 +114,15 @@ $(document).ready(function(){
               var ProgressPercentage = (amountSaved / amountSet) * 100;
                if (ProgressPercentage > 0){
                $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                       amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
                 } else {
                   $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                  amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                  amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
                 }
+
+                
 
               });
 
@@ -110,9 +137,16 @@ $(document).ready(function(){
                 var ProgressPercentage = (amountSaved / amountSet) * 100;
                if (ProgressPercentage > 0){
                  $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                 
+                 amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                 amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;;
                  } else {
                $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+               
+               amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+               amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
                  }
+
 
                 });
 
@@ -127,9 +161,17 @@ $(document).ready(function(){
                     var ProgressPercentage = (amountSaved / amountSet) * 100;
                     if (ProgressPercentage > 0){
                     $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+
+                    amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                    amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
                     } else {
                       $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+
+                      amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                      amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
                     }
+
+                    
 
                   });
 
@@ -145,9 +187,15 @@ $(document).ready(function(){
                     var ProgressPercentage = (amountSaved / amountSet) * 100;
                     if (ProgressPercentage > 0){
                     $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                    amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                    amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
                     } else {
                       $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                      amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                      amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
                     }
+
+                    
 
                     });
 
@@ -163,9 +211,17 @@ $(document).ready(function(){
                       var ProgressPercentage = (amountSaved / amountSet) * 100;
                       if (ProgressPercentage > 0){
                         $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+
+                        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+
                         } else {
                           $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
                         }
+
+                        
                 
 
                       });
@@ -181,9 +237,16 @@ $(document).ready(function(){
                         var ProgressPercentage = (amountSaved / amountSet) * 100;
                         if (ProgressPercentage > 0){
                         $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+
+                          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+
                         } else {
                           $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+                          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
                         }
+                       
 
                         });
   }
