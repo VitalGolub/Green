@@ -111,17 +111,29 @@ app.post('/login', (request, response) => {
     let username = request.body.username;
     let password = request.body.password;
 
-    db.get(`SELECT * FROM users WHERE username = "${username}" AND password = "${password}"`, (err, row) => {
+    db.get(`SELECT * FROM users WHERE username = "${username}"`, (err, row) => {
         if (err) {
             return;
         }
         if(row != null){
 			/*response.render('login', {
 				result: 'init'
-			});*/
-            request.session.user = username;
-            console.log(`Successful login: ${username}`);
-            response.redirect('home');
+            });*/
+            if (bcrypt.compareSync(password, row.password)) {
+                request.session.user = username;
+                console.log(`Successful login: ${username}`);
+                response.redirect('home');
+            }
+            else {
+                // login failed
+                
+                console.log(`Login failed: ${username}`);
+                //response.redirect('login');
+                response.render('login', {
+                    result: 'error',
+                    
+                });
+            }
         } else {
             // login failed
 			
@@ -160,7 +172,7 @@ app.post('/processSignup', (request, response) => {
             var lastname = request.body.lastName;
             var email = request.body.email;
             var dob = request.body.dateOfBirth;
-            var pass = request.body.pass;
+            var pass = bcrypt.hashSync(request.body.pass);
             var phoneNumber = request.body.phoneNumber;
             var country = request.body.country;
             var address = request.body.address;
