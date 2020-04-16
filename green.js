@@ -339,6 +339,21 @@ app.post('/api/getUserBudgets', function(req, res) {
     });
 });
 
+app.post('/api/setUserBudget', function(req, res) {
+    let data = JSON.parse(JSON.stringify(req.body));
+
+    let user = data.username;
+    let category = data.category;
+    let amount = data.amount;
+
+    db.run(`UPDATE budgets SET ${category}=? WHERE username=?`,[amount, user], function(error) {
+        if (error) {
+            console.error(error.message);
+            return;
+        }
+    });
+});
+
 app.post('/api/setGoal', function(req, res) {
     let data = JSON.parse(JSON.stringify(req.body));
 
