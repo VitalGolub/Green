@@ -1,5 +1,5 @@
 body {
-    background-color: #76b852;
+    background-color: #28a745;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -108,3 +108,11 @@ button {
 a {
     text-decoration: none
 }
+
+.errorMsg{
+	visibility: visible;
+}
+.noErrorMessage{
+	visibility: hidden;
+}
+

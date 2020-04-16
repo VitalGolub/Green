@@ -109,3 +109,15 @@ label {
   float: right;
   margin-bottom: 3rem;
 }
+
+#editBudget tr th{
+  background-color: #28a745;
+}
+
+#editBudget tr td{
+  background-color: #e9ecef;
+}
+
+#editBudget tr td:hover{
+background-color: #dcfffd;
+}

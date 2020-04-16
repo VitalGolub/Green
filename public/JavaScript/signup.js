@@ -12,36 +12,50 @@ $('.step3').hide();
 
 
 $('.submit').click(function() {
+	//Initializes the socket
 	let socket = io({
 		transports: ['websocket', 'server-events', 'htmlfile', 'xhr-multipart', 'xhr-polling']
 
 	});
+	//Creates a new date, and gets the month, day, hour, minute, and second (and AM or PM)
+	var getCurrentTime = new Date();
+	var currentDate = getMonthDate(getCurrentTime.getMonth()) + " " + 
+						getCurrentTime.getDate() + ", " + 
+						getProperHour(getCurrentTime.getHours()) + ":" +
+						get2DigitTime(getCurrentTime.getMinutes()) + ":" + 
+						get2DigitTime(getCurrentTime.getSeconds()) + " " +
+						getAMorPM(getCurrentTime.getHours()) + ":    ";
+	
+	//Stores the username variable from the pug file in a variable
 	var theUserName = document.getElementsByName('username');
+	
+	//Socket sends the date, the username, and a "has registered" message
 	socket.emit('Send', {
+			date: currentDate,
 			username: theUserName[0].value + " ",
 			message: "has registered",
 		});
-	alert("Welcome to Green "+ theUserName[0].value + "!");
+	alert("Welcome to Green "+ theUserName[0].value + "!");				//Welcomes the user to Green.
 		
 });
 
 $(".step1").children().keypress(function(event){
-	if(event.keyCode === 13){
-		event.preventDefault()				//Prevents the page from loading the default enter button command
-		goToNext(this);
+	if(event.keyCode === 13){				//If the user presses enter, prevent the page from doing its default action, and load the next form
+		event.preventDefault()				
+		goToNext(this);						
 	}
 });
 
 
 $(".step2").children().keypress(function(event){
-	if(event.keyCode === 13){
-		event.preventDefault()				//Prevents the page from loading the default enter button command
+	if(event.keyCode === 13){				//If the user presses enter, prevent the page from doing its default action, and load the next form
+		event.preventDefault()				
 		goToNext(this);
 	}
 });
 
 $(".next").click(function(){
-	goToNext(this);
+	goToNext(this);							//Load the next form
 });
 
 $(".previous").click(function(){
@@ -117,4 +131,56 @@ function goToNext(currentForm){
 		//I use easeInOutElastic as a place holder
 		easing: 'easeInOutElastic'
 	});
+}
+
+//This function takes in the numerical month determined by .getMonth() and turns it into the corresponding month
+function getMonthDate(numberMonth){
+	if(numberMonth == 0) return 'January';
+	else if (numberMonth == 1) return 'February';
+	else if (numberMonth == 2) return 'March';
+	else if (numberMonth == 3) return 'April';
+	else if (numberMonth == 4) return 'May';
+	else if (numberMonth == 5) return 'June';
+	else if (numberMonth == 6) return 'July';
+	else if (numberMonth == 7) return 'August';
+	else if (numberMonth == 8) return 'September';
+	else if (numberMonth == 9) return 'October';
+	else if (numberMonth == 10) return 'November';
+	else if (numberMonth == 11) return 'December';
+}
+
+function getProperHour(militaryHour){
+	//Checks if the time is midnight
+	if (militaryHour == 0){
+		return militaryHour+12;
+	}
+	//Checks if the time is between 1am and noon
+	else if(militaryHour <=12){
+		return militaryHour;
+	}
+	//Checks if the time is past noon, if it is, convert it to AM/PM time
+	else{
+		return militaryHour-12;
+	}
+}
+
+//Determines if the time passed (the hour) is an AM or PM time
+function getAMorPM(miliHour){
+	 if(miliHour <=12){
+		return "AM";
+	}
+	else{
+		return "PM";
+	}
+}
+
+//If minutes or seconds is less than 10, it initially only shows 1 digit
+//This function changes it to be 2 digits.
+function get2DigitTime(theTime){
+	if (theTime <10){
+		return "0"+theTime;
+	}
+	else{
+		return theTime;
+	}
 }
