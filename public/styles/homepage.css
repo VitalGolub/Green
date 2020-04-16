@@ -85,56 +85,51 @@ button:hover{
 
 
 
-
 #theModal{
 	display: block;	
 	/*opacity: 0.0;*/	
 	visibility: hidden;								/*By default, modal is hidden*/
 	z-index: 1;										/*Puts it above other content*/
 	overflow: auto;									/*Allows scrolling*/
-	box-shadow: -1px -1px 25px #82D305;				/*Adds a shade/popup shadow to the log*/
+	box-shadow: -1px -1px 25px #28a745;				/*Adds a shade/popup shadow to the log*/
 	/*border-style: solid;*/
 	border-radius: 10px;							/*Makes the modal have slightly rounded edges*/
 	width: 50%;										/*Sets the dimensions of the modal*/
 	height: 80%;
 	margin-top: 4.2rem;								/*Makes the modal appear just under the navbar*/
 	margin-left: 25%;								/*Centers the modal*/
-	background-color: rgba(255,255,255,0.8);		/*Makes the log semi transparent*/
+	background-color: rgba(255,255,255,0.93);		/*Makes the log semi transparent, with white background*/
 
 
 }
 
 .close{
-	font-size: 35px;
-	padding-right: 0.5rem;
+	font-size: 35px;								/*Makes the close button 35 pixels*/
+	padding-right: 0.5rem;							/*Sets the location of the close button, 0.5rem away from right, and 0.2rem away from top*/
 	padding-top: 0.2rem;
 }
 
 
+
+
 /* Modal Content */
-#mContent {
- /* position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
-}
-
 #mHeader {
-	text-align: center;
-	border: 2px;
-	border-style: none none solid none;
-	border-color: rgba(0,0,0,0.5);
+	text-align: center;								/*Sets header text to the center*/
+	border: 3px;									/*Boarder is 3 pixels wide*/
+	border-style: none none solid none;				/*Only have a bottom border*/
+	border-color: rgba(0,0,0,0.5);					/*Boarder is a semi transparent black color*/
 }
 
-#mBody {
-	text-align: center;
-	border-style: none none solid none;
-	border-color: rgba(0,0,0,0.5);
+.modalLog, .oldModalLog {							/*Both oldModalLog and modalLog have these properties*/
+	/*text-align: center;*/
+	border: 1.5px;									/*Boarder is 1.5 pixels wide*/
+	border-style: none none solid none;				/*Only have a bottom border*/
+	border-color: rgba(0,0,0,0.5);					/*Boarder is a semi transparent black background*/
 }
 
+.oldModalLog{
+	color: 	#FF0000;								/*oldModalLog specifically has red text, to show messages missed*/
+}
 
 
 #buttonCarousel{

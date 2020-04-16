@@ -107,7 +107,7 @@ app.get('/login' , (request,response) => {
     response.render('login');
 });
 
-app.post('/processLogin', (request, response) => {
+app.post('/login', (request, response) => {
     let username = request.body.username;
     let password = request.body.password;
 
@@ -116,13 +116,21 @@ app.post('/processLogin', (request, response) => {
             return;
         }
         if(row != null){
+			/*response.render('login', {
+				result: 'init'
+			});*/
             request.session.user = username;
             console.log(`Successful login: ${username}`);
             response.redirect('home');
         } else {
             // login failed
+			
             console.log(`Login failed: ${username}`);
-            response.redirect('login');
+            //response.redirect('login');
+			response.render('login', {
+				result: 'error',
+				
+			});
         }
     });
 });
@@ -420,17 +428,27 @@ var server = app.listen(app.get('port'), () => {
     console.log('Node.js/Express is listening on port ' + app.get('port'));
 })
 
-let soio = require('socket.io')(server);
+let registerHistory = [];
 
-soio.on('connection', function(socket) {
+let soio = require('socket.io')(server);							//Creates a socket that connects to our server
+
+soio.on('connection', function(socket) {							//When a user connects to the socket
 	console.log('User has connected.');
-	socket.on('Leave', function(){
+	if(registerHistory.length > 0){									//If a user connects and missed another user register, display the missed registrations
+		for (var i=0; i<registerHistory.length; i++){
+			socket.emit('old register logs', registerHistory[i]);
+		}
+	}
+	
+	
+	socket.on('Leave', function(){									//When the user disconnects
 		console.log('User has left.');
 	});
 
-	socket.on('Send', function(data){
-		console.log(data.username + ": " + data.message);
-		soio.emit('admin notification', data);
+	socket.on('Send', function(data){								//If a user registers
+		console.log(data.date + data.username + ": " + data.message);
+		registerHistory.push(data);									//Store the registration information in registerHistory
+		soio.emit('admin notification', data);						//If a connected user is online (an admin), send them the registration details
 	});
 })
 

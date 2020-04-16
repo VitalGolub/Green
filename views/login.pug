@@ -9,9 +9,14 @@ head
 hgroup
   h1 Welcome to Green
   h4 Keep Track Of Your Money. Stay On Track Of Your Life.
+  if(result == "error")
+    label(id="errorMessage", class = "errorMsg") Error logging in.
+  else
+    label(id="errorMessage", class = "noErrorMessage") Error logging in.
+	
 .main
   i.fa.fa-money(style="font-size:48px; margin-top:10px;")
-  form.form1(action="/processLogin", method="post")
+  form.form1(action="/login", method="post")
 
     input.username(type="text" name="username" id="username" placeholder="Username" required autofocus)
     input.password(type="password" name="password" id="password" placeholder="Password" required)

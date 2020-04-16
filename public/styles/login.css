@@ -108,3 +108,11 @@ button {
 a {
     text-decoration: none
 }
+
+.errorMsg{
+	visibility: visible;
+}
+.noErrorMessage{
+	visibility: hidden;
+}
+

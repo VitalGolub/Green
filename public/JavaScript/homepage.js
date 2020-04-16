@@ -68,13 +68,26 @@ if(justTheUserName == "test"){
 
   btnAdmin[0].style.visibility = "visible";
   socket = io();
+  
+  socket.on('old register logs', function (data) {
+	  var olderLog = document.createElement("div");
+	  olderLog.setAttribute("class", "oldModalLog");
+	  olderLog.innerHTML += data.date + data.username + data.message;
+	  mData.appendChild(olderLog);
+  });
+  
   socket.on('admin notification', function(data) {
-    mData.innerHTML += "<div>" + data.username + data.message + "</div>";
-    console.log('yea');
-  })
+    var currentLog = document.createElement("div");
+	currentLog.setAttribute("class", "modalLog");
+	currentLog.innerHTML += data.date + data.username + data.message;
+	mData.appendChild(currentLog);
+		
+	
+	//mData.innerHTML += "<div>" + data.username + data.message + "</div>";
+	
+  });
 
   btnAdmin[0].onclick = function(){
-    console.log('clicked');
     theModal.style.visibility = "visible";
   }
 }
