@@ -10,21 +10,11 @@ var userGoalData;
 var amountSet = 0;  
 var amountSaved = 0;
 
-
-
-
-
-
-
 $(document).ready(function(){
   $.get("/api/getSessionUser", function(data) {
       user = data;
       
   });
-
- 
-
-
 
     $("#buttonSet BTN").click(function() {
         column_num = parseInt( $(this).parent().parent().parent().parent().index()  ) + 1;
@@ -33,24 +23,9 @@ $(document).ready(function(){
 
         //alert("row: "+ row_num +" col: " + column_num + " but: "+ button_num);
     });
-   
-    
-    
-  
-  
-    
-  
-  
-  
-  
-  
   });
 
   window.onload = function() {
-
-
-    
-   
     
     $("#tripView").click(function() {
       
@@ -62,30 +37,19 @@ $(document).ready(function(){
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+    });
 
-     
-      
 
-      
+    $("#carView").click(function() {
+      getGoalAmount('car');
+      console.log(amountSet);
 
-      });
+      getSavedAmount('car');
+      console.log(amountSaved);
 
-       $("#carView").click(function() {
-          getGoalAmount('car');
-          console.log(amountSet);
-    
-          getSavedAmount('car');
-          console.log(amountSaved);
-    
-          var ProgressPercentage = (amountSaved / amountSet) * 100;
-          $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-    
-         
-          
-    
-          
-    
-          });
+      var ProgressPercentage = (amountSaved / amountSet) * 100;
+      $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+    });
 
           $("#schoolView").click(function() {
             getGoalAmount('education');
@@ -97,11 +61,7 @@ $(document).ready(function(){
             var ProgressPercentage = (amountSaved / amountSet) * 100;
             $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
       
-           
-            
-      
-            
-      
+
             });
 
             $("#buyHomeView").click(function() {
@@ -113,12 +73,7 @@ $(document).ready(function(){
         
               var ProgressPercentage = (amountSaved / amountSet) * 100;
               $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-        
-             
-              
-        
-              
-        
+
               });
 
 
@@ -131,12 +86,7 @@ $(document).ready(function(){
           
                 var ProgressPercentage = (amountSaved / amountSet) * 100;
                 $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-          
-               
-                
-          
-                
-          
+
                 });
 
                 $("#retireView").click(function() {
@@ -149,12 +99,7 @@ $(document).ready(function(){
             
                   var ProgressPercentage = (amountSaved / amountSet) * 100;
                   $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-            
-                 
-                  
-            
-                  
-            
+
                   });
 
 
@@ -168,12 +113,7 @@ $(document).ready(function(){
               
                     var ProgressPercentage = (amountSaved / amountSet) * 100;
                     $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-              
-                   
-                    
-              
-                    
-              
+
                     });
 
 
@@ -188,11 +128,7 @@ $(document).ready(function(){
                       var ProgressPercentage = (amountSaved / amountSet) * 100;
                       $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
                 
-                     
-                      
-                
-                      
-                
+
                       });
 
 
@@ -205,21 +141,13 @@ $(document).ready(function(){
                   
                         var ProgressPercentage = (amountSaved / amountSet) * 100;
                         $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-                  
-                       
-                        
-                  
-                        
-                  
-                        });
 
-    
+                        });
   }
 
 
-
 function getGoalAmount(categorySelected) {
-  
+  jQuery.ajaxSetup({async:false});
   $.post("/api/getUserGoals", {username:user}, function(data) {
     amountSet = 0;
     $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
@@ -234,7 +162,7 @@ function getGoalAmount(categorySelected) {
 }
 
 function getSavedAmount(categorySelected) {
-  
+  jQuery.ajaxSetup({async:false});
   $.post("/api/getGoalProgress", {username:user}, function(data) {
     amountSaved = 0;
     for(var i = 0; i < data.length; i++){
@@ -243,16 +171,8 @@ function getSavedAmount(categorySelected) {
         
         amountSaved += data[i].amount;
       }
-      
-       
     }
-       
-   
-   
   });
-
-  
-
 }
 
 
