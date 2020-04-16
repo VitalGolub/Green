@@ -276,15 +276,15 @@ function updateProgressBar(budgetData,expenseData,multiplier)
 
   console.log("BUDGET DATA AFTER MULT: ",budgetData);
 
-  $("#budgetEnt").empty().append("$",budgetData.entertainment);
-  $("#budgetEdu").empty().append("$",budgetData.education);
-  $("#budgetPer").empty().append("$",budgetData.health);
-  $("#budgetGro").empty().append("$",budgetData.groceries);
-  $("#budgetRes").empty().append("$",budgetData.restaurants);
-  $("#budgetUti").empty().append("$",budgetData.utilities);
-  $("#budgetAuto").empty().append("$",budgetData.auto);
-  $("#budgetGift").empty().append("$",budgetData.gifts);
-  $("#budgetInv").empty().append("$",budgetData.investments);
+  $("#budgetEnt").empty().append("$",budgetData.entertainment.toFixed(2));
+  $("#budgetEdu").empty().append("$",budgetData.education.toFixed(2));
+  $("#budgetPer").empty().append("$",budgetData.health.toFixed(2));
+  $("#budgetGro").empty().append("$",budgetData.groceries.toFixed(2));
+  $("#budgetRes").empty().append("$",budgetData.restaurants.toFixed(2));
+  $("#budgetUti").empty().append("$",budgetData.utilities.toFixed(2));
+  $("#budgetAuto").empty().append("$",budgetData.auto.toFixed(2));
+  $("#budgetGift").empty().append("$",budgetData.gifts.toFixed(2));
+  $("#budgetInv").empty().append("$",budgetData.investments.toFixed(2));
 
   console.log("EXPENSE DATA: ",expenseData);
 

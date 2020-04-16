@@ -31,3 +31,31 @@ body {
 .btn{
   margin: 0.4rem;
 }
+
+div div div img {
+  /* display: inline-block; */
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+
+#chair {
+  margin-top: 1.3rem;
+}
+
+
+#amountLabel {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 1rem;
+  font-size: 16px;
+}
+
+#budgetLabel {
+  /* float: right; */
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 1rem;
+  font-size: 16px;
+
+}

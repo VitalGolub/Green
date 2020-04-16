@@ -25,9 +25,9 @@ script(type='text/javascript').
     .row
       .col-sm
         .card(style='width: 18rem;')
-        
+          <img src="images/greenicon_plane_BLACK.svg" height="70px" width="65px" alt="Airplane">
           .card-body
-            i.fa.fa-plane(style='font-size:48px;')
+            //i.fa.fa-plane(style='font-size:48px;')
             h5.card-title Take a Trip
             p.card-text Start saving for your next adventure!
             .buttonset(id='buttonSet')
@@ -38,9 +38,9 @@ script(type='text/javascript').
 
       .col-sm
         .card(style='width: 18rem;')
-         
+          <img src="images/greenicon_car_BLACK.svg" height="70px" width="65px" alt="BMW">
           .card-body
-            i.fa.fa-car(style='font-size:48px;')
+            //i.fa.fa-car(style='font-size:48px;')
             h5.card-title Buy a Car
             p.card-text Start saving for that fancy new ride you have been looking at
             .buttonset(id='buttonSet')
@@ -49,9 +49,9 @@ script(type='text/javascript').
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
-        
+          <img src="images/greenicon_school_BLACK.svg" height="70px" width="65px" alt="BMW">
           .card-body
-            i.fa.fa-graduation-cap(style='font-size:48px;')
+            //i.fa.fa-graduation-cap(style='font-size:48px;')
             h5.card-title Save for School
             p.card-text Put some money towards your education
             .buttonset(id='buttonSet')
@@ -63,9 +63,9 @@ script(type='text/javascript').
     .row
       .col-sm
         .card(style='width: 18rem;')
-         
+          <img src="images/greenicon_house_BLACK.svg" height="70px" width="65px" alt="Home">
           .card-body
-            i.fa.fa-home(style='font-size:48px;')
+            //i.fa.fa-home(style='font-size:48px;')
             h5.card-title Buy a Home
             p.card-text Start putting money away for your new home
             .buttonset(id='buttonSet')
@@ -74,9 +74,9 @@ script(type='text/javascript').
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
-         
+          <img src="images/greenicon_wrench_BLACK.svg" height="70px" width="65px" alt="Wrench">
           .card-body
-            i.fa.fa-wrench(style='font-size:48px;')
+            //i.fa.fa-wrench(style='font-size:48px;')
             h5.card-title Home Improvment
             p.card-text Start saving for some much needed renovations
             .buttonset(id='buttonSet')
@@ -85,9 +85,9 @@ script(type='text/javascript').
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
-         
+          <img src="images/greenicon_retirement_BLACK.svg" height="70px" width="65px" alt="Rocking Chair" id="chair">
           .card-body
-            i.fa.fa-male(style='font-size:48px;')
+            //i.fa.fa-male(style='font-size:48px;')
             h5.card-title Retirement Savings
             p.card-text Start saving for your retirement
             .buttonset(id='buttonSet')
@@ -99,9 +99,9 @@ script(type='text/javascript').
     .row
       .col-sm
         .card(style='width: 18rem;')
-        
+          <img src="images/greenicon_creditcard_BLACK.svg" height="70px" width="65px" alt="Credit Card">
           .card-body
-            i.fa.fa-credit-card(style='font-size:48px;')
+            //i.fa.fa-credit-card(style='font-size:48px;')
             h5.card-title Crush Credit Card Debt
             p.card-text Crush your credit card debt and start building your credit score
             .buttonset(id='buttonSet')
@@ -110,9 +110,9 @@ script(type='text/javascript').
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
-          
+          <img src="images/greenicon_loan_BLACK.svg" height="70px" width="65px" alt="Loan">
           .card-body
-            i.fa.fa-users(style='font-size:48px;')
+            //i.fa.fa-users(style='font-size:48px;')
             h5.card-title Eliminate my loans
             p.card-text Get those pesky loans off your head
             .buttonset(id='buttonSet')
@@ -121,9 +121,9 @@ script(type='text/javascript').
               btn.btn.btn-success(type='button' data-toggle='modal' data-target='#insertModal') Insert
       .col-sm
         .card(style='width: 18rem;')
-          
+          <img src="images/greenicon_umbrella_BLACK.svg" height="70px" width="65px" alt="Umbrella">
           .card-body
-            i.fa.fa-umbrella(style='font-size:48px;')
+            //i.fa.fa-umbrella(style='font-size:48px;')
             h5.card-title Rainy Day
             p.card-text Its always good to have an emergency fund!
             .buttonset(id='buttonSet')
@@ -150,11 +150,15 @@ div.modal.fade(id='viewModal' tabindex='-1' role='dialog' aria-labelledby='examp
     div.modal-content
       div.modal-header
         h5.modal-title(id='exampleModalLongTitle') Progress
+
+        label#amountLabel hi
+        label#budgetLabel hello
+
         btn.close(type='button' data-dismiss='modal' aria-label='Close')
           span(aria-hidden='true') &times
       div.modal-body
-        .progress
-         .progress-bar(role="progressbar" style="width: 100%;" aria-valuenow="" aria-valuemin="0" aria-valuemax="") 
+       .progress
+        .progress-bar(role="progressbar" style="width: 100%;" aria-valuenow="" aria-valuemin="0" aria-valuemax="")
       div.modal-footer
         btn.btn.btn-secondary(type='button' data-dismiss='modal') Close
 
