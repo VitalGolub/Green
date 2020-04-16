@@ -74,4 +74,10 @@ This is our final project for CSCI 3230U - Web Application Development. We decid
 * "How can I navigate through all of these different web pages?" you may ask. Our navbar allows navigation throughout the site seamless. 
 * The navbar is animated, so you can see what page you are on without getting bored.
 
+**Goals.**
+*Set Goals for yourself in any of the 9 categories on the Goal Page
+*Insert the amount of money that you are stashing away in your piggy bank 
+*Hit View to keep track of the progress of your goal
+
+
 ### Want to learn more? View the "About Us" section on our website.
