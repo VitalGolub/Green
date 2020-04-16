@@ -247,7 +247,15 @@ var color = d3.scale.ordinal()
 
 //Functions For pie charts
 function change(data) {
-  JSON.stringify(data)
+  var newData = [];
+  for(let i = 0; i<data.length;i++)
+  {
+    if(data[i].value > 0)
+    {
+      newData.push(data[i]);
+    }
+  }
+  data = newData;
 
 	/* ------- PIE SLICES -------*/
 	var slice = svg.select(".slices").selectAll("path.slice")
