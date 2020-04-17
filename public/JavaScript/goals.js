@@ -23,9 +23,6 @@ $(document).ready(function(){
 
       
     });
-  });
-
-  window.onload = function() {
     var amountSetLable = document.getElementById("amountLabel");
     var amountSavedLabel = document.getElementById("budgetLabel");
     /*
@@ -81,175 +78,153 @@ $(document).ready(function(){
 
     });
 
-          $("#schoolView").click(function() {
-            getGoalAmount('education');
-            console.log(amountSet);
-      
-            getSavedAmount('education');
-            console.log(amountSaved);
-      
-            var ProgressPercentage = (amountSaved / amountSet) * 100;
-            if (ProgressPercentage > 0){
-            $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-              amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-              amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-            } else {
-              $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
-              amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-              amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-            }
+    $("#schoolView").click(function() {
+      getGoalAmount('education');
+      console.log(amountSet);
 
-            
-      
+      getSavedAmount('education');
+      console.log(amountSaved);
 
-            });
+      var ProgressPercentage = (amountSaved / amountSet) * 100;
+      if (ProgressPercentage > 0){
+      $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      } else {
+        $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      }
+    });
 
-            $("#buyHomeView").click(function() {
-              getGoalAmount('home');
-              console.log(amountSet);
+    $("#buyHomeView").click(function() {
+      getGoalAmount('home');
+      console.log(amountSet);
+
+      getSavedAmount('home');
+      console.log(amountSaved);
+
+      var ProgressPercentage = (amountSaved / amountSet) * 100;
+        if (ProgressPercentage > 0){
+        $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+                amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+                amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+        } else {
+          $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      }
+    });
+
+    $("#homeRenoView").click(function() {
+      getGoalAmount('homeImprovement');
+      console.log(amountSet);
+
+      getSavedAmount('homeImprovement');
+      console.log(amountSaved);
+
+      var ProgressPercentage = (amountSaved / amountSet) * 100;
+      if (ProgressPercentage > 0){
+        $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
         
-              getSavedAmount('home');
-              console.log(amountSaved);
+        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;;
+      } else {
+        $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
         
-              var ProgressPercentage = (amountSaved / amountSet) * 100;
-               if (ProgressPercentage > 0){
-               $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-                       amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-                } else {
-                  $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
-                  amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                  amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-                }
+        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      }
+    });
 
-                
+    $("#retireView").click(function() {
+      
+      getGoalAmount('retirement');
+      console.log(amountSet);
 
-              });
+      getSavedAmount('retirement');
+      console.log(amountSaved);
 
+      var ProgressPercentage = (amountSaved / amountSet) * 100;
+      if (ProgressPercentage > 0){
+        $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
 
-              $("#homeRenoView").click(function() {
-                getGoalAmount('homeImprovement');
-                console.log(amountSet);
-          
-                getSavedAmount('homeImprovement');
-                console.log(amountSaved);
-          
-                var ProgressPercentage = (amountSaved / amountSet) * 100;
-               if (ProgressPercentage > 0){
-                 $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-                 
-                 amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                 amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;;
-                 } else {
-               $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
-               
-               amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-               amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-                 }
+        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      } else {
+        $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+
+        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      }
+    });
 
 
-                });
+    $("#creditDebtView").click(function() {
+    
+      getGoalAmount('creditcard');
+      console.log(amountSet);
 
-                $("#retireView").click(function() {
-                  
-                  getGoalAmount('retirement');
-                  console.log(amountSet);
-            
-                  getSavedAmount('retirement');
-                  console.log(amountSaved);
-            
-                    var ProgressPercentage = (amountSaved / amountSet) * 100;
-                    if (ProgressPercentage > 0){
-                    $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+      getSavedAmount('creditcard');
+      console.log(amountSaved);
 
-                    amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                    amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-                    } else {
-                      $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
-
-                      amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                      amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-                    }
-
-                    
-
-                  });
+      var ProgressPercentage = (amountSaved / amountSet) * 100;
+      if (ProgressPercentage > 0){
+        $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      } else {
+        $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      }
+    });
 
 
-                  $("#creditDebtView").click(function() {
-                  
-                    getGoalAmount('creditcard');
-                    console.log(amountSet);
-              
-                    getSavedAmount('creditcard');
-                    console.log(amountSaved);
-              
-                    var ProgressPercentage = (amountSaved / amountSet) * 100;
-                    if (ProgressPercentage > 0){
-                    $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-                    amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                    amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-                    } else {
-                      $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
-                      amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                      amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-                    }
+    $("#loanView").click(function() {
+    
+      getGoalAmount('loans');
+      console.log(amountSet);
 
-                    
+      getSavedAmount('loans');
+      console.log(amountSaved);
 
-                    });
+      var ProgressPercentage = (amountSaved / amountSet) * 100;
+      if (ProgressPercentage > 0){
+        $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
 
+        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
 
-                    $("#loanView").click(function() {
-                    
-                      getGoalAmount('loans');
-                      console.log(amountSet);
-                
-                      getSavedAmount('loans');
-                      console.log(amountSaved);
-                
-                      var ProgressPercentage = (amountSaved / amountSet) * 100;
-                      if (ProgressPercentage > 0){
-                        $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
-
-                        amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                        amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-
-                        } else {
-                          $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
-                          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-                        }
-
-                        
-                
-
-                      });
+      } else {
+          $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+      }
+    });
 
 
-                      $("#emergenyView").click(function() {
-                        getGoalAmount('emergency');
-                        console.log(amountSet);
-                  
-                        getSavedAmount('emergency');
-                        console.log(amountSaved);
-                  
-                        var ProgressPercentage = (amountSaved / amountSet) * 100;
-                        if (ProgressPercentage > 0){
-                        $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
+      $("#emergenyView").click(function() {
+        getGoalAmount('emergency');
+        console.log("Set ", amountSet);
+  
+        getSavedAmount('emergency');
+        console.log("Saved ", amountSaved);
+  
+        var ProgressPercentage = (amountSaved / amountSet) * 100;
+        if (ProgressPercentage > 0){
+        $('.progress-bar').css('width', ProgressPercentage+'%').attr('aria-valuenow', ProgressPercentage);
 
-                          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
 
-                        } else {
-                          $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
-                          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
-                          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
-                        }
-                       
-
-                        });
-  }
+        } else {
+          $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+          amountSetLable.innerHTML = 'Amount Set: ' + amountSet;
+          amountSavedLabel.innerHTML = 'Amount Saved: ' + amountSaved;
+        }
+      });
+});
 
 //api call to green.js to pull goal total for selected Category
 function getGoalAmount(categorySelected) {
@@ -257,14 +232,9 @@ function getGoalAmount(categorySelected) {
   $.post("/api/getUserGoals", {username:user}, function(data) {
     amountSet = 0;
     $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
-       
-       amountSet = this[categorySelected];
-       
-       });
-
-      });
- 
-
+       amountSet = this[categorySelected];   
+    });
+  });
 }
 //api call to green.js to get information about money saved for selected goal
 function getSavedAmount(categorySelected) {
@@ -283,6 +253,7 @@ function getSavedAmount(categorySelected) {
 
 
 function myFunc(){
+  jQuery.ajaxSetup({async:true});
   let insertJson;
   let category;
   switch(button_num){
@@ -298,8 +269,9 @@ function myFunc(){
 
       console.log(insertJson);
 
-      if(user != "Invalid-User")
-          $.post("/api/setGoal", insertJson);
+      if(user != "Invalid-User"){
+        $.post("/api/setGoal", insertJson);
+      }
       document.getElementById('totalGoal').value = '';
       break;
     //View is pressed
