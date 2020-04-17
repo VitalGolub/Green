@@ -41,7 +41,7 @@ This is our final project for CSCI 3230U - Web Application Development. We decid
 * Username: Randyfortier
 * Password: webdev
 
-* Starts off at surrent week showing transactions for this week.
+* Starts off at current week showing transactions for this week.
 * Can change to month view and year view in the carousel.
 * If you go to date 2019-10-15 and press update button, you  will see transaction for that week moth and year view.
 
