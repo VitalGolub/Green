@@ -37,6 +37,14 @@ This is our final project for CSCI 3230U - Web Application Development. We decid
 
 **7**. To close it when finished, open Terminal and press `CTRL-C`. A prompt will come up confirming if you want to close. To confirm, type `Y`. 
 
+**Randy Fortier login information**
+* Username: Randyfortier
+* Password: webdev
+
+* Starts off at surrent week showing transactions for this week.
+* Can change to month view and year view in the carousel.
+* If you go to date 2019-10-15 and press update button, you  will see transaction for that week moth and year view.
+
 
 ## Key Features
 
