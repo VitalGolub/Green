@@ -322,7 +322,6 @@ app.post('/api/getUserExpenses', (req,res) => {
             throw err;
         }
 
-        console.log(rows);
         res.send(rows);
     });
 });
@@ -485,11 +484,6 @@ app.post('/api/getGoalProgress', (req,res) => {
 
         res.send(rows);
     });
-});
-
-//Render the test.html
-app.get('/test', (request,response) => {
-    response.sendFile(__dirname + '/public/test.html');
 });
 
 //Set the port to 3000

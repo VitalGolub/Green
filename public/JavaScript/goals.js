@@ -34,10 +34,8 @@ $(document).ready(function(){
     $("#tripView").click(function() {
       
       getGoalAmount('travel');
-      console.log(amountSet);
 
       getSavedAmount('travel');
-      console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       if (ProgressPercentage > 0){
@@ -58,10 +56,8 @@ $(document).ready(function(){
 
     $("#carView").click(function() {
       getGoalAmount('car');
-      console.log(amountSet);
 
       getSavedAmount('car');
-      console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       if (ProgressPercentage > 0){
@@ -80,10 +76,8 @@ $(document).ready(function(){
 
     $("#schoolView").click(function() {
       getGoalAmount('education');
-      console.log(amountSet);
 
       getSavedAmount('education');
-      console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       if (ProgressPercentage > 0){
@@ -99,10 +93,8 @@ $(document).ready(function(){
 
     $("#buyHomeView").click(function() {
       getGoalAmount('home');
-      console.log(amountSet);
 
       getSavedAmount('home');
-      console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
         if (ProgressPercentage > 0){
@@ -118,10 +110,8 @@ $(document).ready(function(){
 
     $("#homeRenoView").click(function() {
       getGoalAmount('homeImprovement');
-      console.log(amountSet);
 
       getSavedAmount('homeImprovement');
-      console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       if (ProgressPercentage > 0){
@@ -140,10 +130,8 @@ $(document).ready(function(){
     $("#retireView").click(function() {
       
       getGoalAmount('retirement');
-      console.log(amountSet);
 
       getSavedAmount('retirement');
-      console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       if (ProgressPercentage > 0){
@@ -163,10 +151,8 @@ $(document).ready(function(){
     $("#creditDebtView").click(function() {
     
       getGoalAmount('creditcard');
-      console.log(amountSet);
 
       getSavedAmount('creditcard');
-      console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       if (ProgressPercentage > 0){
@@ -184,10 +170,8 @@ $(document).ready(function(){
     $("#loanView").click(function() {
     
       getGoalAmount('loans');
-      console.log(amountSet);
 
       getSavedAmount('loans');
-      console.log(amountSaved);
 
       var ProgressPercentage = (amountSaved / amountSet) * 100;
       if (ProgressPercentage > 0){
@@ -206,10 +190,8 @@ $(document).ready(function(){
 
       $("#emergenyView").click(function() {
         getGoalAmount('emergency');
-        console.log("Set ", amountSet);
   
         getSavedAmount('emergency');
-        console.log("Saved ", amountSaved);
   
         var ProgressPercentage = (amountSaved / amountSet) * 100;
         if (ProgressPercentage > 0){
@@ -267,8 +249,6 @@ function myFunc(){
           category:category
       };
 
-      console.log(insertJson);
-
       if(user != "Invalid-User"){
         $.post("/api/setGoal", insertJson);
       }
@@ -286,8 +266,6 @@ function myFunc(){
           amount:amount,
           category:category
       };
-
-      console.log(insertJson);
 
       if(user != "Invalid-User")
           $.post("/api/addGoalProgress", insertJson);
