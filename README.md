@@ -79,5 +79,8 @@ This is our final project for CSCI 3230U - Web Application Development. We decid
 * Insert the amount of money that you are stashing away in your piggy bank 
 * Hit View to keep track of the progress of your goal
 
+**Bugs(or Features depending on how you look at it).**
+* Sometimes on the goals page when the save changes 
+* button is pressed the website will freeze
 
 ### Want to learn more? View the "About Us" section on our website.
