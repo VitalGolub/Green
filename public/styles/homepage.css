@@ -170,7 +170,7 @@ li.active{
     width: 940px;
     height: 500px;
     float: right;
-    margin-right: 15rem;
+    margin-right: 19.25rem;
     margin-top: 3rem;
 }
 
@@ -200,13 +200,15 @@ polyline{
     margin-top: 2rem;
     margin-bottom: 5rem;
     margin-left: 2.5rem;
+    float: left;
+    width: 15%;
 }
 
 
 
 #singleProgressBar{
     margin-bottom: 2rem;
-    width: 20%;
+    width: 100%;
 }
 
 #progessLabel , #budgetEnt,#budgetEdu,#budgetPer,#budgetGro,#budgetRes,#budgetUti,#budgetAuto,#budgetGift,#budgetInv{

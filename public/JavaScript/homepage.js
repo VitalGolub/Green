@@ -118,24 +118,23 @@ function checkType(x)
 
 
 function displayD3(x){
-  var returnDates;
-  var expenseData;
-  var budgetData;
+  let returnDates;
+  let expenseData;
+  let budgetData;
   switch(x){
     case 0:
+      jQuery.ajaxSetup({async:false});
       returnDates = week();
       expenseData = getData(returnDates[0],returnDates[1])
       //Change pie chart
       change(expenseData);
       //Change progress Bar
       budgetData = getBudgetData();
-      //Change progress Bar
-      console.log("BUDGET DATA SENING: ",budgetData);
-      console.log("Expense DATA SENING: ",expenseData);
       updateProgressBar(budgetData,expenseData,0.25);
       break;
 
     case 1:
+      jQuery.ajaxSetup({async:false});
       returnDates = month();
       expenseData = getData(returnDates[0],returnDates[1])
       //Change pie chart
@@ -147,6 +146,7 @@ function displayD3(x){
       break;
 
     case 2:
+      jQuery.ajaxSetup({async:false});
       let date = new Date(document.getElementById('d3date').value);
       let start = date.getFullYear() + "-01-01";
       let end = date.getFullYear() + "-12-31";
@@ -227,54 +227,31 @@ function getData(from, to){
 function getBudgetData()
 {
   jQuery.ajaxSetup({async:false});
-  let returnMap = [
-    {auto:0,
-    education:0,
-    entertainment:0,
-    gifts:0,
-    groceries:0,
-    health:0,
-    investments:0,
-    restaurants:0,
-    utilities:0}
-  ];
 
+  var returnData;
   var jsonQuery = {username:userName};
-  $.post("/api/getUserBudgets" ,jsonQuery,function(data) {
-    $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
-
-      returnMap.auto = this.auto;
-      returnMap.education = this.education;
-      returnMap.entertainment = this.entertainment;
-      returnMap.gifts = this.gifts;
-      returnMap.groceries = this.groceries;
-      returnMap.health = this.health;
-      returnMap.investments = this.investments;
-      returnMap.restaurants = this.restaurants;
-      returnMap.utilities = this.utilities;
-
-    });
+  $.post("/api/getUserBudgets" ,jsonQuery,function(data) 
+  {
+    returnData = data;
   });
-  console.log("INT HE FUNCTION: ",returnMap)
-  return returnMap;
+  return returnData[0];
 }
 
 function updateProgressBar(budgetData,expenseData,multiplier)
 {
   jQuery.ajaxSetup({async:false});
-  console.log("BUDGET DATA BEFORE MULT: ",budgetData);
+  var holdData = budgetData;
 
-  budgetData.auto = budgetData.auto * multiplier;
-  budgetData.education = budgetData.education * multiplier;
-  budgetData.entertainment = budgetData.education * multiplier;
-  budgetData.gifts = budgetData.education * multiplier;
-  budgetData.groceries = budgetData.education * multiplier;
-  budgetData.health = budgetData.education * multiplier;
-  budgetData.investments = budgetData.education * multiplier;
-  budgetData.restaurants = budgetData.education * multiplier;
-  budgetData.utilities = budgetData.education * multiplier;
 
-  console.log("BUDGET DATA AFTER MULT: ",budgetData);
+  budgetData["auto"] = budgetData["auto"] * multiplier;
+  budgetData["education"] = budgetData["education"] * multiplier;
+  budgetData["entertainment"] = budgetData["entertainment"] * multiplier;
+  budgetData["gifts"] = budgetData["gifts"] * multiplier;
+  budgetData["groceries"] = budgetData["groceries"] * multiplier;
+  budgetData["health"] = budgetData["health"] * multiplier;
+  budgetData["investments"] = budgetData["investments"] * multiplier;
+  budgetData["restaurants"] = budgetData["restaurants"] * multiplier;
+  budgetData["utilities"] = budgetData["utilities"] * multiplier;
 
   $("#budgetEnt").empty().append("$",budgetData.entertainment.toFixed(2));
   $("#budgetEdu").empty().append("$",budgetData.education.toFixed(2));
@@ -286,11 +263,8 @@ function updateProgressBar(budgetData,expenseData,multiplier)
   $("#budgetGift").empty().append("$",budgetData.gifts.toFixed(2));
   $("#budgetInv").empty().append("$",budgetData.investments.toFixed(2));
 
-  console.log("EXPENSE DATA: ",expenseData);
 
-  var proBarArray = $(".progress-bar").toArray();
-  console.log("EX: ",expenseData[0]);
-  console.log("BUD: ",budgetData.entertainment);
+  let proBarArray = $(".progress-bar").toArray();
   $(proBarArray[0]).css('width', ((expenseData[0].value/budgetData.entertainment) * 100).toFixed(2) +'%');
   $(proBarArray[1]).css('width', (expenseData[1].value/budgetData.education) * 100 +'%');
   $(proBarArray[2]).css('width', (expenseData[2].value/budgetData.health) * 100 +'%');
@@ -301,8 +275,7 @@ function updateProgressBar(budgetData,expenseData,multiplier)
   $(proBarArray[7]).css('width', (expenseData[7].value/budgetData.gifts) * 100 +'%');
   $(proBarArray[8]).css('width', (expenseData[8].value/budgetData.investments) * 100 +'%');
 
-  var innerText = $(".s").toArray();
-  console.log("probar", expenseData[5].value)
+  let innerText = $(".s").toArray();
   $(innerText[0]).empty().append("$",expenseData[0].value);
   $(innerText[1]).empty().append("$",expenseData[1].value);
   $(innerText[2]).empty().append("$",expenseData[2].value);
@@ -370,6 +343,7 @@ function change(data)
   }
   data = newData;
 
+
 	/* ------- PIE SLICES -------*/
 	var slice = svg.select(".slices").selectAll("path.slice")
 		.data(pie(data), key);
@@ -393,7 +367,13 @@ function change(data)
 	slice.exit()
 		.remove();
 
-	/* ------- TEXT LABELS -------*/
+  /* ------- TEXT LABELS -------*/
+
+  for(let i =0; i<data.length;i++){
+    console.log(i);
+    data[i].label += " $" + data[i].value;
+  }
+  console.log(data);
 
 	var text = svg.select(".labels").selectAll("text")
 		.data(pie(data), key);
