@@ -331,6 +331,7 @@ var color = d3.scale.ordinal()
 
 
 //Functions For pie charts
+//http://bl.ocks.org/dbuezas/9306799 used as base code for function
 function change(data) 
 {
   var newData = [];
