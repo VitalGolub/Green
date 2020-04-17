@@ -13,7 +13,7 @@ window.onload = function() {
 
 	let theModal =  document.getElementById('theModal');
 	var socket;
-
+	//When the close/X button on the modal is clicked, hide the modal (essentially closing it)
 	var xClose = document.getElementsByClassName('close');
 	xClose[0].onclick = function(){
 		theModal.style.visibility = "hidden";
@@ -45,58 +45,60 @@ window.onload = function() {
             async: false,
             success: function (data) {
 
-				        justTheUserName = data;
+				justTheUserName = data;				//Save the username
                 userName = data;
                 introductionMessage[0].innerText = "Welcome, " + data + "!";
              }
             });
 
-
-if(justTheUserName == "test"){
-  //make div append to carousel array
-  $(".carousel-inner").append(
-
-    "<div class='carousel-item'><button type='button' class='btn' name='btnAdminLog'>View Registration Log</button></div>"
-  );
-  //make options and append
-  $(".carousel-indicators").append(
-
-    "<li data-target='#carouselExampleIndicators' data-slide-to='4'></li>"
-  );
-
-  let btnAdmin = document.getElementsByName('btnAdminLog');
-
-  btnAdmin[0].style.visibility = "visible";
-  socket = io();
+	//If the admin is logged in
+	if(justTheUserName == "admin"){
   
-  socket.on('old register logs', function (data) {
-	  var olderLog = document.createElement("div");
-	  olderLog.setAttribute("class", "oldModalLog");
-	  olderLog.innerHTML += data.date + data.username + data.message;
-	  mData.appendChild(olderLog);
-  });
+		//make div append to carousel array
+		$(".carousel-inner").append(
+
+			"<div class='carousel-item'><button type='button' class='btn' name='btnAdminLog'>View Registration Log</button></div>"
+		);
   
-  socket.on('admin notification', function(data) {
-    var currentLog = document.createElement("div");
-	currentLog.setAttribute("class", "modalLog");
-	currentLog.innerHTML += data.date + data.username + data.message;
-	mData.appendChild(currentLog);
-		
-	
-	//mData.innerHTML += "<div>" + data.username + data.message + "</div>";
-	
-  });
+		//make options and append
+		$(".carousel-indicators").append(
 
-  btnAdmin[0].onclick = function(){
-    theModal.style.visibility = "visible";
-  }
-}
+			"<li data-target='#carouselExampleIndicators' data-slide-to='4'></li>"
+		);
 
-  var today = new Date();
-  var dateString = today.getFullYear()+'-'+("00" + (today.getMonth()+1)).slice (-2)+'-'+("00" + today.getDate()).slice (-2);
+		//Grab the admin button, and make it visible. Initialize a socket
+		let btnAdmin = document.getElementsByName('btnAdminLog');
 
-  document.getElementById('d3date').value = dateString;
-  displayD3(0);
+		btnAdmin[0].style.visibility = "visible";
+		socket = io();
+  
+		//Connect to the 'old register logs' socket which gets all registration information before the admin logged in
+		socket.on('old register logs', function (data) {
+			var olderLog = document.createElement("div");
+			olderLog.setAttribute("class", "oldModalLog");
+			olderLog.innerHTML += data.date + data.username + data.message;
+			mData.appendChild(olderLog);
+		});
+  
+		//Connect to the 'admin notification' socket, which checks to see when a new user registers
+		socket.on('admin notification', function(data) {
+			var currentLog = document.createElement("div");
+			currentLog.setAttribute("class", "modalLog");
+			currentLog.innerHTML += data.date + data.username + data.message;
+			mData.appendChild(currentLog);
+		});
+
+		//When the admin button is clicked, make the registration log modal visible.
+		btnAdmin[0].onclick = function(){
+			theModal.style.visibility = "visible";
+		}
+	}
+
+	var today = new Date();
+	var dateString = today.getFullYear()+'-'+("00" + (today.getMonth()+1)).slice (-2)+'-'+("00" + today.getDate()).slice (-2);
+
+	document.getElementById('d3date').value = dateString;
+	displayD3(0);
 }
 
 function checkType(x)

@@ -50,6 +50,15 @@ img[name='screenshot'] {
       padding-bottom: 2rem;
   }
 
+  div.container{
+	max-width: 80rem;
+  }
+
+  div.col-sm, .card{
+	max-width: 15rem;
+	max-height: 26.3125rem;
+  }
+
   .card{
     width: 100%;
     height: auto;
