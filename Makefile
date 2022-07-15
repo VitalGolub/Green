@@ -5,5 +5,5 @@ run:
 		--rm \
 		--detach \
 		--publish 3000:3000 \
-		--name test_webdev \
-		webdev:latest
+		--name green \
+		green:latest
